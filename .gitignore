@@ -1,0 +1,36 @@
+# ----------------------------------*- Sh -*-----------------------------------
+# Filename: .gitignore
+# Description: 
+# Author: Fabian Wermelinger
+# Email: fabianw@student.ethz.ch
+# Created: Mon Oct 24 23:21:48 2011 (+0200)
+# Version: 
+# Last-Updated: Mon Oct 24 23:24:28 2011 (+0200)
+#           By: Fabian Wermelinger
+#     Update #: 1
+# -----------------------------------------------------------------------------
+# .gitignore starts here
+# -----------------------------------------------------------------------------
+
+# Lines that start with '#' are comments
+# editor and misc backup files - anywhere
+*~
+.*~
+*.bak
+*.bak[0-9][0-9]
+*.orig
+*.orig[0-9][0-9]
+\#*\#
+
+# source packages - anywhere
+*.tar.bz2
+*.tar.gz
+*.tar
+*.tgz
+*.gtgz
+*.zip
+*.rar
+
+# -----------------------------------------------------------------------------
+# .gitignore ends here
+# -----------------------------------------------------------------------------

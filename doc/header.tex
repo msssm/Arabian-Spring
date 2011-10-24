@@ -1,0 +1,122 @@
+%% --------------------------------*- Latex -*---------------------------------
+%% Filename: header.tex
+%% Description: 
+%% Author: Fabian Wermelinger
+%% Email: fabianw@student.ethz.ch
+%% Created: Sat Jul 23 19:33:31 2011 (+0200)
+%% Version: 
+%% Last-Updated: Mon Oct 24 23:14:57 2011 (+0200)
+%%           By: Fabian Wermelinger
+%%     Update #: 4
+%% ----------------------------------------------------------------------------
+%%% header.tex starts here
+%% ----------------------------------------------------------------------------
+
+%Macros
+%------------------------------------------------------------------------------
+\usepackage[utf8x]{inputenc}
+%\usepackage[]{ngerman}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[]{a4}
+\usepackage[text={15cm,23cm},centering]{geometry}
+\usepackage[]{amsmath, amssymb, amsthm, amsfonts}
+\usepackage[]{mathrsfs}
+\usepackage[]{bm}
+\usepackage[]{latexsym}
+\usepackage[font=small,labelfont={bf,sf},labelsep=quad,%
+figurename=Figure,tablename=Table,margin=20pt]{caption}
+\usepackage[]{cite}
+\usepackage[]{fancyhdr}
+%\usepackage[section]{placeins}
+\usepackage[dvips]{graphicx}
+%\usepackage[]{pstricks, pst-all, pst-3dplot}
+\usepackage[]{xcolor}
+\usepackage[]{psfrag}
+\usepackage[]{afterpage}
+\usepackage[]{fancyvrb}
+\usepackage[]{float}
+\usepackage[]{subfig}
+\usepackage[]{xspace}
+\usepackage[]{nomencl}
+\usepackage[]{url}
+\usepackage[]{calc}
+\usepackage[]{multirow}
+\usepackage[]{slashbox, pict2e}
+\usepackage[]{setspace}
+\usepackage[]{appendix}
+%\usepackage[sf]{titlesec}
+%\usepackage[scaled=0.93]{helvet}
+%\usepackage[]{mathpazo}
+%\usepackage[]{layouts}
+%\newcommand\showpage{%
+%\currentpage\pagedesign}
+
+%Text layout
+%------------------------------------------------------------------------------
+\setlength{\unitlength}{1cm}
+\setlength{\topmargin}{-1cm}
+\setlength{\headheight}{1.5cm}
+% %\setlength{\headsep}{1.4cm}
+% %\setlength{\oddsidemargin}{0cm}
+% %\setlength{\evensidemargin}{0cm}
+% %\setlength{\footskip}{1.2cm}
+% %\setlength{\marginparwidth}{1.6cm}
+% \setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6ex plus0.2ex minus0.2ex}
+
+%Header/Footer
+%------------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyhf[HL]{\small ETH Zurich}
+% \fancyhf[HER]{\small \nouppercase{\leftmark}}
+\fancyhf[HR]{\small \nouppercase{\rightmark}}
+\fancyhf[FC]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%new commands
+%------------------------------------------------------------------------------
+%math (valid within mathmode)
+\newcommand{\lap}[1]{\mathcal{L}\left\{#1\right\}}
+\newcommand{\ilap}[1]{\mathcal{L}^{-1}\left\{#1\right\}}
+\newcommand{\four}[1]{\mathcal{F}\left\{#1\right\}}
+\newcommand{\ifour}[1]{\mathcal{F}^{-1}\left\{#1\right\}}
+\newcommand{\ztrans}[1]{\mathcal{Z}\left\{#1\right\}}
+\newcommand{\iztrans}[1]{\mathcal{Z}^{-1}\left\{#1\right\}}
+\newcommand{\odiff}[1]{\mathrm{d} #1}
+\newcommand{\sdiff}[1]{\mathrm{D} #1}
+\newcommand{\pdiff}[1]{\partial #1}
+\newcommand{\iu}{\operatorname{i}}
+\newcommand{\ju}{\operatorname{j}}
+\newcommand{\bvec}[1]{\bm{\mathrm{#1}}}
+\newcommand{\mat}[1]{\mathrm{#1}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+%physics (valid within mathmode)
+\newcommand{\units}[1]{\:\mathrm{#1}}
+\newcommand{\cel}{\units{^\circ C}}
+\newcommand{\degree}{^\circ}
+%other
+\newcommand{\matlab}{\textsc{Matlab\textsuperscript{\textregistered}}%
+  \xspace}
+\newcommand{\fort}{\textsc{Fortran}\xspace}
+\newcommand{\eg}{e.g.\@\xspace}
+\newcommand{\ie}{i.e.\@\xspace}
+\newtheorem{mydef}{Definition}
+\newtheorem{mythm}{Theorem}
+
+%hyphenation
+%------------------------------------------------------------------------------
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End: 
+
+%% ----------------------------------------------------------------------------
+%%% header.tex ends here
+%% ----------------------------------------------------------------------------

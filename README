@@ -1,0 +1,32 @@
+# ----------------------------------*- Org -*----------------------------------
+# Filename: README
+# Description: README file for the MATLAB project of the lecture 851-0585-04G
+#              Modelling and Simulating Social Systems with MATLAB.  The README
+#              file is written in emacs org-mode, see http://orgmode.org/
+# Author: Fabian Wermelinger
+# Email: fabianw@student.ethz.ch
+# Created: Mon Oct 24 22:33:58 2011 (+0200)
+# Version: 
+# Last-Updated: Mon Oct 24 23:01:37 2011 (+0200)
+#           By: Fabian Wermelinger
+#     Update #: 3
+# -----------------------------------------------------------------------------
+# README starts here
+# -----------------------------------------------------------------------------
+
+* Members
+  | Name                | E-Mail                   | Departement |
+  |---------------------+--------------------------+-------------|
+  | Sebastian Heinekamp | heinekas@student.ethz.ch | DPHYS       |
+  | Tileman Conring     | tconring@gmail.com       | DPHYS       |
+  | Fabian Wermelinger  | fabianw@student.ethz.ch  | DMAVT       |
+  |---------------------+--------------------------+-------------| 
+  
+* GitHub remote location
+  [[git://github.com/tconring/Arabian-Spring.git]] (read only)
+
+* Project
+** TODO Introduction
+      
+** TODO Research Plan
+   

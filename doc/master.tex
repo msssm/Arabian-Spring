@@ -1,0 +1,101 @@
+%% --------------------------------*- Latex -*---------------------------------
+%% Filename: master.tex
+%% Description: 
+%% Author: Fabian Wermelinger
+%% Email: fabianw@student.ethz.ch
+%% Created: Sat Jul 23 19:36:14 2011 (+0200)
+%% Version: 
+%% Last-Updated: Mon Oct 24 23:14:47 2011 (+0200)
+%%           By: Fabian Wermelinger
+%%     Update #: 4
+%% ----------------------------------------------------------------------------
+%%% master.tex starts here
+%% ----------------------------------------------------------------------------
+
+%Preamble
+%------------------------------------------------------------------------------
+\documentclass[11pt,a4paper]{article}
+\input{header.tex}
+
+%draft watermark
+% \usepackage[dvips,first,bottomafter]{draftcopy}
+
+%additional options
+\newcommand{\nomunit}[1]{%
+  \renewcommand{\nomentryend}{\hspace*{\fill}\makebox[1cm]{$\units{#1}$}}}
+\makenomenclature
+
+\clubpenalty=10000
+\widowpenalty=10000
+
+\newcommand\Top{\rule{0pt}{3ex}} %for tables
+\newcommand\Bot{\rule[-1.5ex]{0pt}{0pt}} %for tables
+
+\def\bibdir{./references} %path to library
+\def\bibtitle{Refrences} %bib title
+
+%------------------------------------------------------------------------------
+\begin{document}
+%------------------------------------------------------------------------------
+
+%Titlepage
+%------------------------------------------------------------------------------
+\input{./titlepage/cover}
+\newpage
+
+%Abstract
+%------------------------------------------------------------------------------
+\begin{abstract}
+  
+\end{abstract}
+
+%Frontmatter
+%------------------------------------------------------------------------------
+% \pagenumbering{roman}
+%TOC
+\tableofcontents
+% \clearpage
+% %LOF
+% \listoffigures
+% \clearpage
+% %LOT
+% \listoftables
+% \clearpage
+% %Nomenclature
+% \markboth{\nomname}{\nomname}
+% \printnomenclature
+% \clearpage
+
+%Mainmatter
+%------------------------------------------------------------------------------
+%Mainbody
+
+
+%Appendix
+\appendix
+% \appendixpage
+
+%Backmatter
+%------------------------------------------------------------------------------
+%BibTeX
+\renewcommand{\bibname}{\bibtitle}
+\bibliographystyle{siam}
+%\addcontentsline{toc}{section}{References}
+\bibliography{\bibdir/projectLib}
+
+%Nomenclature
+% \markboth{\nomname}{\nomname}
+% \printnomenclature
+
+%------------------------------------------------------------------------------
+\end{document}
+%------------------------------------------------------------------------------
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
+%% ----------------------------------------------------------------------------
+%%% master.tex ends here
+%% ----------------------------------------------------------------------------
