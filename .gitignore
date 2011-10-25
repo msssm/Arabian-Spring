@@ -5,9 +5,9 @@
 # Email: fabianw@student.ethz.ch
 # Created: Mon Oct 24 23:21:48 2011 (+0200)
 # Version: 
-# Last-Updated: Mon Oct 24 23:24:28 2011 (+0200)
+# Last-Updated: Tue Oct 25 21:09:47 2011 (+0200)
 #           By: Fabian Wermelinger
-#     Update #: 1
+#     Update #: 3
 # -----------------------------------------------------------------------------
 # .gitignore starts here
 # -----------------------------------------------------------------------------
@@ -16,11 +16,21 @@
 # editor and misc backup files - anywhere
 *~
 .*~
+*.asv
 *.bak
 *.bak[0-9][0-9]
 *.orig
 *.orig[0-9][0-9]
 \#*\#
+
+# LaTeX related files other than source - anywhere in /doc
+/doc/*.aux
+/doc/*.dvi
+/doc/*.log
+/doc/*.nlo
+/doc/*.pdf
+/doc/*.ps
+/doc/*.toc
 
 # source packages - anywhere
 *.tar.bz2

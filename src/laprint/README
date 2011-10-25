@@ -1,0 +1,64 @@
+# ----------------------------------*- Org -*----------------------------------
+# Filename: README
+# Description: LaPrint is a very powerful tool to convert MATLAB graphics into
+#              a eps/tex couple in order to include the graphical output into
+#              your LaTeX documentation.  This version of LaPrint is slightly
+#              modified compared to the version available at
+#              http://www.uni-kassel.de/fb16/rat/matlab/laprint/.  Its
+#              modification includes the use of the "textwidth" keyword for
+#              relative width in your LaTeX document.  Also, the "filename"
+#              parameter to the function is interpreted as a string and does
+#              not look for subdirectories.  Thus, it makes sense to use the
+#              function in your figure subdirectory of your LaTeX document
+#              structure.
+# Author: Fabian Wermelinger
+# Email: fabianw@student.ethz.ch
+# Created: Tue Oct 25 20:28:26 2011 (+0200)
+# Version: 
+# Last-Updated: Tue Oct 25 20:59:08 2011 (+0200)
+#           By: Fabian Wermelinger
+#     Update #: 2
+# -----------------------------------------------------------------------------
+# README starts here
+# -----------------------------------------------------------------------------
+
+
+# -----------------------------------------------------------------------------
+# README ends here
+# -----------------------------------------------------------------------------
+
+* What is it?
+  LaPrint is a powerful MATLAB function to generate graphical output which can
+  be integrated into LaTeX documents.
+
+* Where can I get it? Documentation?
+  http://www.uni-kassel.de/fb16/rat/matlab/laprint/
+
+* Is this version the one I will get from the site above?
+  No. I slightly modified this version, since I was not too happy with some of
+  its original features.
+
+  - This version allows to use the keyword "textwidth", which was not part of
+    the original distribution that only provided the absolute argument "width".
+    Textwidth is relative and takes a value between 0 and 1.
+    
+  - Another modification is the interpretation of the variable "filename".
+    This version treats filename as a string and does not follow the path given
+    in filename.  The reason for this is LaTeX related, as you often wish to
+    place your figures in a subdirectory of your document structure, thus this
+    must be accounted for in the path definition of the *.tex output file.  A
+    consequence is that the output of LaPrint will be generated in the working
+    directory of the function call.
+
+* Example
+  The following example plots a cosine function and exports the graphical
+  MATLAB output for use with LaTeX to the working directory.  Two files are
+  created, namely testFig.tex and testFig.eps.  To include the figure in your
+  LaTeX document, use \input{./figs/testFig.tex} in a figure environment.
+  #+begin_src matlab
+  x = linspace( 0, 2*pi, 1000 );
+  y = cos( x );
+  plot( x, y );
+  laprint( gcf, './figs/testFig', 'textwidth', 0.6 );
+  close( gcf );
+  #+end_src

@@ -1,0 +1,12 @@
+All MATLAB source code of the project is located in this directory (./src)
+
+Its (current) structure is as follows:
+
+    ./src/
+    |-- func
+    |-- laprint
+    `-- main
+
+where the sim executable script is located in main, whereas all custom
+functions are located in func.  The directory laprint contains a graphical
+MATLAB tool used together with LaTeX.
