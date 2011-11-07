@@ -7,9 +7,9 @@
 # Email: fabianw@student.ethz.ch
 # Created: Mon Oct 24 22:33:58 2011 (+0200)
 # Version: 
-# Last-Updated: Tue Oct 25 21:10:16 2011 (+0200)
+# Last-Updated: Mon Nov  7 22:18:53 2011 (+0100)
 #           By: Fabian Wermelinger
-#     Update #: 4
+#     Update #: 12
 # -----------------------------------------------------------------------------
 # README starts here
 # -----------------------------------------------------------------------------
@@ -26,7 +26,81 @@
   [[git://github.com/tconring/Arabian-Spring.git]] (read only)
 
 * Project
-** TODO Introduction
+** Introduction
+   A few months ago in some Arabian countries there were some kind of
+   revolutionary movements. In some countries they were successful while in
+   other countries they struggled. Our aim of this research project is to
+   understand the mechanisms of the success of the Arabian spring.  We want to
+   build a society based on a small world graph with, e.g. three clusters,
+   where each cluster represents a country adjacent to another. These clusters
+   shall be formed with individual probabilities, generating different
+   homogeneity of each country as such. With the focus on one country, we want
+   to analyze the spreading of opinion changes between nodes (where each node
+   has an agent assigned to) in that particular cluster based on an SIR(S)
+   model. Further, the propagation of the opinion formation across the clusters
+   shall be investigated.  The probability of “infection” shall depend on local
+   quantities such as the number of connected links to a node (clustering
+   coefficient). This may result in a stronger influence of one particular node
+   connected to another in the same cluster, but it may also spread across
+   clusters since there will be nodes with connections to individual nodes of
+   another cluster. In that case, a global quantity such as the link lengths of
+   the two clusters in question may also influence the opinion spreading across
+   them.  In a first simplified step, we assume that links between nodes will
+   exist during all times.
+
+** Research Plan
+   Fundamental Questions:
+   How does the structure p of multiple s-connected networks influence the
+   spreading of opinion formation based on an SIR(S) model, where p ranges from
+   0 (large-world, regular ring lattice) to 1 (disordered network, random) and
+   s defines the probability that one node of a given network will be connected
+   with a node of another network?
    
-** TODO Research Plan
+   Expected Results:
+   Prediction of a date where a certain amount of nodes of the main network has
+   a mind state to uprise against the government and how long it will take from
+   there on to spread over to the other networks, depending on their structure
+   p and connectivity s.  We assume that the opinion formation will be faster
+   in a more random like network than it would be in a regular ring lattice.
    
+** MATLAB   
+*** Network
+    Each network is an assembly of N nodes generated with independent
+    functions.  The output of these functions must be a sparse matrix S.  See
+    the MATLAB help for the sparse() function in order to generate sparse
+    matrices in MATLAB.
+
+*** Agents
+    If a network has N nodes, then there are N agents.  Hence, the number of
+    agents is determined by the size of the sparse matrix S.  Agent information
+    is stored in a structure array.  See the MATLAB help for more information
+    on structures in MATLAB.  Each element (i.e. agent) in that array has
+    several fields assigned to.  Suppose agent(i) is the i-th agent in the
+    array of agents, then the following fields are assigned to it:
+
+    + agent(i).state   The state variable defines the current mind state of the
+                       agent.  It is a numeric value on the interval [0 1],
+                       where 0 means pro regime and 1 means con regime.  Hence,
+                       a state of 0.5 means undecided.
+    + agent(i).nbr     The nbr variable is a list of integers to the j-th
+                       neighbor of the i-th agent.  The length of that list is
+                       the number of agents who know agent i, and vice versa.
+    + agent(i).alpha   The alpha variable is a scalar between 0 and 1.  It
+                       defines the influence of agent i on its neighbors j.  A
+                       value of 0 means no influence, whereas 1 means very high
+                       influence.  However, the influence of agent i on its
+                       neighbor j can only take effect once the probability
+                       beta of infection is met.  Beta defines the rate of
+                       infection of the SIR(S) model and is a global value,
+                       given to the solver function.  The alpha value is a
+                       network dependent value.
+    
+    The structure array of agents must be generated with an independent
+    function, taking the sparse matrix S (network information) as an argument.
+*** TODO Definition of influence on agents (alpha)
+*** Solver
+    The solver function is an independent function taking an array of agents
+    and a parameter structure as arguments.  It implements the SIR(S) model and
+    solves (or iterates) through a given amount of time.  It generates suitable
+    output for a postprocessing tool.
+*** TODO Post-Processor

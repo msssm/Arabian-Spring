@@ -5,9 +5,9 @@
 # Email: fabianw@student.ethz.ch
 # Created: Mon Oct 24 23:21:48 2011 (+0200)
 # Version: 
-# Last-Updated: Tue Oct 25 21:09:47 2011 (+0200)
+# Last-Updated: Thu Oct 27 22:10:53 2011 (+0200)
 #           By: Fabian Wermelinger
-#     Update #: 3
+#     Update #: 4
 # -----------------------------------------------------------------------------
 # .gitignore starts here
 # -----------------------------------------------------------------------------
@@ -40,6 +40,10 @@
 *.gtgz
 *.zip
 *.rar
+
+# macintosh
+.DS_Store
+thumbs.db
 
 # -----------------------------------------------------------------------------
 # .gitignore ends here
