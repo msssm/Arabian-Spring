@@ -7,9 +7,9 @@
 # Email: fabianw@student.ethz.ch
 # Created: Mon Oct 24 22:33:58 2011 (+0200)
 # Version: 
-# Last-Updated: Mon Nov  7 22:18:53 2011 (+0100)
+# Last-Updated: Tue Nov  8 21:38:39 2011 (+0100)
 #           By: Fabian Wermelinger
-#     Update #: 12
+#     Update #: 13
 # -----------------------------------------------------------------------------
 # README starts here
 # -----------------------------------------------------------------------------
@@ -63,7 +63,7 @@
    p and connectivity s.  We assume that the opinion formation will be faster
    in a more random like network than it would be in a regular ring lattice.
    
-** MATLAB   
+** MATLAB
 *** Network
     Each network is an assembly of N nodes generated with independent
     functions.  The output of these functions must be a sparse matrix S.  See
@@ -94,9 +94,23 @@
                        infection of the SIR(S) model and is a global value,
                        given to the solver function.  The alpha value is a
                        network dependent value.
-    
+    + agent(i).citizen The citizen variable defines one agents citizenship.
+                       That is, the membership to a certain cluster of the
+                       global network.  It is a two element vector, where the
+                       first element is the number of the cluster the agent
+                       belongs to and the second is the total number of
+                       clusters in the global network.  For example,
+                       agent(i).citizen = [1 3] means that agent i is citizen
+                       of cluster 1 from a total of 3 global clusters.
+                       A node of cluster i shall be connected to a node of
+                       cluster j with probability p.  Hence, the agent function
+                       takes a first argument p, followed by s arguments, where
+                       each of the s arguments is a sparse matrix S, generated
+                       with the network function.
+
     The structure array of agents must be generated with an independent
-    function, taking the sparse matrix S (network information) as an argument.
+    function, taking the global probability p and s sparse matrices S (
+    generated with the network function) as arguments.
 *** TODO Definition of influence on agents (alpha)
 *** Solver
     The solver function is an independent function taking an array of agents
