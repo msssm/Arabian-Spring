@@ -9,48 +9,56 @@
 % smallworld.m starts here
 % -----------------------------------------------------------------------------
 %
-% Network
-%   Each network is an assembly of N nodes generated with independent
-%   functions. The output of these functions must be a sparse matrix S. See
-%   the MATLAB help for the sparse() function in order to generate sparse
-%   matrices in MATLAB.
+% Modeling and Simulating Social Systems with MATLAB
+% http://www.soms.ethz.ch/matlab
+% Authors: Stefan Brugger and Cristoph Schwirzer, 2011
+
+function A = small_world(par)
+% Generate a small world graph using the "Watts and Strogatz model" as
+% described in Watts, D.J.; Strogatz, S.H.: "Collective dynamics of
+% 'small-world' networks."
+% A graph with n*k/2 edges is constructed, i.e. the nodal degree is n*k for
+% every node.
 %
-% INPUTS:
-%   n = # of nodes
-%   k = (mean degree)/2
-%   p = probability to rewire
+% INPUT
+% n: [1]: number of nodes of the graph to be generated
+% kHalf: [1]: mean degree/2
+% beta: [1]: rewiring probability
 %
-%   with n > 2k > ln(n) > 1 
-%
-% OUTPUT:
-%   S = sparse matrix representing the small world network
+% OUPUT
+% A: [n n] sparse symmetric adjacency matrix representing the generated graph
 
-function S = smallworld(n, k, p)
+% Construct a regular lattice: a graph with n nodes, each connected to k
+% neighbors, k/2 on each side.
+k = par.kHalf*2;
+rows = reshape(repmat([1:par.nodes]', 1, k), par.nodes*k, 1);
+columns = rows+reshape(repmat([[1:par.kHalf] [par.nodes-par.kHalf:n-1]], par.nodes, 1), par.nodes*k, 1);
+columns = mod(columns-1, par.nodes) + 1;
+B = sparse(rows, columns, ones(par.nodes*k, 1));
+A = sparse([], [], [], par.nodes, par.nodes);
 
-% construct regular lattice with n nodes which have in total k neighbors
-row = reshape(repmat([1:n]' , 1, 2*k), 2*n*k, 1);
-col = reshape(repmat([[1:k] [n-k:n-1]], n, 1), 2*n*k, 1);
-B = sparse(row, col, ones(2*n*k,1));
-
-% rewire nodes with probabilitz p
-for i = [1:n]
-    B(i, mod(i+k,n)+1)=1
-end
-
-for i=1:n
-    for j=i+1:n
-        if(B(i,j)==1 && rand()<p)
-            B(i,j)=0;
-            a=floor(rand()*n)+1;
-            if(i<a)
-                B(i,a)=1;
-            else
-                B(a,i)=1;
+% With probability beta rewire an edge avoiding loops and link duplication.
+% Until step i, only the columns 1:i are generated making implicit use of A's
+% symmetry.
+for i = [1:par.nodes]
+    % The i-th column is stored full for fast access inside the following loop.
+    col= [full(A(i, 1:i-1))'; full(B(i:end, i))];
+    for j = i+find(col(i+1:end))'
+        if (rand()<par.alpha)
+            col(j)=0;
+            k = randi(par.nodes);
+            while k==i || col(k)==1
+                k = randi(par.nodes);
             end
+            col(k) = 1;
         end
     end
+    A(:,i) = col;
 end
 
-S = sparse(B);
+% A is not yet symmetric: to speed things up, an edge connecting i and j, i < j
+% implies A(i,j)==1, A(i,j) might be zero.
+T = triu(A);
+A = T+T';
 
-end
+end % small_world(...)
