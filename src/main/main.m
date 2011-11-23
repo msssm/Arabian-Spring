@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Nov 10 21:20:16 2011 (+0100)
 % Version: 
-% Last-Updated: Mon Nov 21 18:11:02 2011 (+0100)
+% Last-Updated: Wed Nov 23 16:26:23 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 29
+%     Update #: 34
 % -----------------------------------------------------------------------------
 % main.m starts here
 % -----------------------------------------------------------------------------
@@ -32,8 +32,12 @@ cd( whereIs.main );
 % the total number of nodes in the global network is sum( par.nodes ) and
 % the number of clusters in the global network is length( par.nodes ).
 par.nodes = [100 150 200];
-par.khalf = [10 20 30];
+
+% used for network generation.  khalf is the mean degree half and alpha is
+% the rewiring probability.
+par.kHalf = [10 20 30];
 par.alpha = [0.1 0.3 0.6];
+
 
 par.stateoffset = 0; 
 
@@ -61,26 +65,32 @@ par.riotOriginThreshold = 0.6;
 % start simulation
 % -----------------------------------------------------------------------------
 
-% test solverSIR.m
-n = 1;
-N = sum( par.nodes );
-imin = [1 par.nodes(2) par.nodes(3)];
-imax = [par.nodes(1) sum(par.nodes(1:2)) sum(par.nodes)];
+% create network
+S = smallworld( par );
 
-for i = 1:length( par.nodes )
-    for j = 1:par.nodes(i)
-        agent(n).state = rand();
-        dummy = [1 randi(8)];
-        agent(n).nbr = randi( N, dummy );
-        % agent(n).nbr = randi( [imin(i) imax(i)] , dummy );
-        agent(n).alpha = 0.6;
-        agent(n).citizen = i;
-        n = n+1;
-    end
-end
+% create agents
+agent = agents( S, par );
 
-res = solverSIR( agent, par );
-plot( res );
+% % test solverSIR.m
+% n = 1;
+% N = sum( par.nodes );
+% imin = [1 par.nodes(2) par.nodes(3)];
+% imax = [par.nodes(1) sum(par.nodes(1:2)) sum(par.nodes)];
+
+% for i = 1:length( par.nodes )
+%     for j = 1:par.nodes(i)
+%         agent(n).state = rand();
+%         dummy = [1 randi(8)];
+%         agent(n).nbr = randi( N, dummy );
+%         % agent(n).nbr = randi( [imin(i) imax(i)] , dummy );
+%         agent(n).alpha = 0.6;
+%         agent(n).citizen = i;
+%         n = n+1;
+%     end
+% end
+
+% res = solverSIR( agent, par );
+% plot( res );
 
 % -----------------------------------------------------------------------------
 % main.m ends here
