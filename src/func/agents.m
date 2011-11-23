@@ -6,7 +6,7 @@
 % Email: heinekas@student.ethz.ch
 % Created: Sun Nov 13 20:05:26 2011 (+0100)
 % Version:
-% Last-Updated: Wed Nov 23 16:22:40 2011 (+0100)
+% Last-Updated: Wed Nov 23 16:36:42 2011 (+0100)
 % By: 
 % Update #: 0
 % -----------------------------------------------------------------------------
@@ -28,7 +28,7 @@ for i=1:numberofagents
     k = 1; 
     maxNode = 0;
     while(agent(i).citizen == 0)
-        naxNode = maxNode + par.nodes(k);
+        maxNode = maxNode + par.nodes(k);
         if i <= maxNode
             agent(i).citizen = k; 
         end
@@ -44,7 +44,7 @@ for i=1:numberofagents
         
         if networkmatrix(i,j) ~= 0
             
-            agent(i).nbr = [angent(i).nbr j]; 
+            agent(i).nbr = [agent(i).nbr j]; 
             
         end
         

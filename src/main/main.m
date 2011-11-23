@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Nov 10 21:20:16 2011 (+0100)
 % Version: 
-% Last-Updated: Wed Nov 23 16:26:23 2011 (+0100)
+% Last-Updated: Wed Nov 23 16:59:15 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 34
+%     Update #: 35
 % -----------------------------------------------------------------------------
 % main.m starts here
 % -----------------------------------------------------------------------------
@@ -70,6 +70,10 @@ S = smallworld( par );
 
 % create agents
 agent = agents( S, par );
+
+% run solver
+res = solverSIR( agent, par );
+plot( res );
 
 % % test solverSIR.m
 % n = 1;

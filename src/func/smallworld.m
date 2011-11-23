@@ -2,9 +2,9 @@
 % Filename: smallworld.m
 % Created: Thu Nov 10 21:29:23 2011 (+0100)
 % Version: 
-% Last-Updated: Thu Nov 10 21:42:50 2011 (+0100)
-%           By: Tileman Conring
-%     Update #: 1
+% Last-Updated: Wed Nov 23 16:58:06 2011 (+0100)
+%           By: Fabian Wermelinger
+%     Update #: 10
 % -----------------------------------------------------------------------------
 % smallworld.m starts here
 % -----------------------------------------------------------------------------
@@ -13,7 +13,7 @@
 % http://www.soms.ethz.ch/matlab
 % Authors: Stefan Brugger and Cristoph Schwirzer, 2011
 
-function A = smallworld(par)
+function S = smallworld(par)
 % Generate a small world graph using the "Watts and Strogatz model" as
 % described in Watts, D.J.; Strogatz, S.H.: "Collective dynamics of
 % 'small-world' networks."
@@ -28,27 +28,37 @@ function A = smallworld(par)
 % OUPUT
 % A: [n n] sparse symmetric adjacency matrix representing the generated graph
 
+S = sparse( sum(par.nodes) );
+
+s = ones( 1, length(par.nodes) );
+for i = 2:length(s)
+    s(i) = s(i-1) + par.nodes(i-1);
+end
+    
+for ni = 1:length(par.nodes)
+n = par.nodes(ni);
 % Construct a regular lattice: a graph with n nodes, each connected to k
 % neighbors, k/2 on each side.
-k = par.kHalf(i)*2;
-rows = reshape(repmat([1:par.nodes(i)]', 1, k), par.nodes(i)*k, 1);
-columns = rows+reshape(repmat([[1:par.kHalf(i)] [par.nodes(i)-par.kHalf(i):n-1]], par.nodes(i), 1), par.nodes(i)*k, 1);
-columns = mod(columns-1, par.nodes(i)) + 1;
-B = sparse(rows, columns, ones(par.nodes(i)*k, 1));
-A = sparse([], [], [], par.nodes(i), par.nodes(i));
+k = par.kHalf(ni)*2;
+rows = reshape(repmat([1:par.nodes(ni)]', 1, k), par.nodes(ni)*k, 1);
+columns = rows+reshape(repmat([[1:par.kHalf(ni)] [par.nodes(ni)-par.kHalf(ni):n-1]], par.nodes(ni), 1), par.nodes(ni)*k, 1);
+columns = mod(columns-1, par.nodes(ni)) + 1;
+B = sparse(rows, columns, ones(par.nodes(ni)*k, 1));
+A = sparse([], [], [], par.nodes(ni), par.nodes(ni));
 
 % With probability beta rewire an edge avoiding loops and link duplication.
 % Until step i, only the columns 1:i are generated making implicit use of A's
 % symmetry.
-for i = [1:par.nodes(i)]
-    % The i-th column is stored full for fast access inside the following loop.
+for i = [1:par.nodes(ni)]
+
+% The i-th column is stored full for fast access inside the following loop.
     col= [full(A(i, 1:i-1))'; full(B(i:end, i))];
     for j = i+find(col(i+1:end))'
-        if (rand()<par.alpha(i))
+        if (rand()<par.alpha(ni))
             col(j)=0;
-            k = randi(par.nodes(i));
+            k = randi(par.nodes(ni));
             while k==i || col(k)==1
-                k = randi(par.nodes(i));
+                k = randi(par.nodes(ni));
             end
             col(k) = 1;
         end
@@ -60,5 +70,6 @@ end
 % implies A(i,j)==1, A(i,j) might be zero.
 T = triu(A);
 A = T+T';
-
+S( s(ni):par.nodes(ni)+s(ni)-1, s(ni):par.nodes(ni)+s(ni)-1 ) = A;
+end
 end % small_world(...)
