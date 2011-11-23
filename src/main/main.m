@@ -35,6 +35,8 @@ par.nodes = [100 150 200];
 par.khalf = [10 20 30];
 par.alpha = [0.1 0.3 0.6];
 
+par.stateoffset = 0; 
+
 % the time variable defines the start and end time of the simulation with a
 % two element vector [tStart tEnd].  the nTime variable defines the number
 % of nodes in the time domain.
