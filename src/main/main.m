@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Nov 10 21:20:16 2011 (+0100)
 % Version: 
-% Last-Updated: Sat Nov 19 18:22:06 2011 (+0100)
+% Last-Updated: Mon Nov 21 18:11:02 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 27
+%     Update #: 29
 % -----------------------------------------------------------------------------
 % main.m starts here
 % -----------------------------------------------------------------------------
@@ -43,7 +43,7 @@ par.nTime = 600;
 
 % the beta and gamma variables define the infection rate and the immunity
 % rate, respectively, of the SIR model.
-par.beta = 0.005; % [day^-1]
+par.beta = 0.01; % [day^-1]
 par.gamma = 0.0008; % [day^-1]
 
 % the riotOrigin parameter defines the number of the cluster in which the
