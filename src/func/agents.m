@@ -12,33 +12,58 @@
 % -----------------------------------------------------------------------------
 % agents.m starts here
 % -----------------------------------------------------------------------------
-function [ agent ] = agents( networkmatrix, countrysize  )
+function [ agent ] = agents( networkmatrix, par  )
 %AGENTS generates the agents out of a network.
 
 [r c] = size(networkmatrix); 
 numberofagents = r; 
-agent = zeros(numberofagents,1); 
+agent = struct('citizen', 0, 'state', 0.5, 'nbr', [1 1]); 
+agent(numberofagents).citizen = 0; 
+maxnbr = 0; 
 
-for i=numberofagents, 
-    agent(i).alpha = 0.5;  % Later a function has to find a value.
+for i=numberofagents,
     
-    agent(i).citizen = floor(i / countrysize); 
+    % Determine in which country the citizen lives
+    agent(i).citizen = 0; 
+    k = 1; 
+    while(agent(i).citizen == 0)
+        if i <= par.nodes(k)
+            agent(i).citizen = k; 
+        end
+        k = k + 1; 
+    end
     
-    agent(i).state = 0.5; % An algorithim to compute this is still needed
+    % Find a random mindstate (with a curtain offset for one party)
+    agent(i).state = (rand(1)+par.stateoffset)/(1+par.stateoffset);
     
     % Find connected agents (neighbours) 
     for j=c,
         
         if networkmatrix(i,j) ~= 0
             
-            agent.nbr = [i, networkmatrix(i, j)]; 
+            agent(i).nbr = [i, networkmatrix(i, j)]; 
             
         end
         
     end
     
+    % Assigning the number of nodes as alpha
+    [ nr nc] = size(agent(i).nbr); 
+    agent(i).alpha = nc;   
+    
+    % Find maxnbr
+    if maxnbr < nc
+        maxnbr = nc; 
+    end
+    
     
 end
+
+% Complete the alpha
+for i=numberofagents,
+    agent(i).alpha = agent(i).alpha / maxnbr; 
+end
+
 
 end
 
