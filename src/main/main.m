@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Nov 10 21:20:16 2011 (+0100)
 % Version: 
-% Last-Updated: Wed Nov 23 16:59:15 2011 (+0100)
+% Last-Updated: Wed Nov 23 17:16:41 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 35
+%     Update #: 45
 % -----------------------------------------------------------------------------
 % main.m starts here
 % -----------------------------------------------------------------------------
@@ -31,21 +31,23 @@ cd( whereIs.main );
 % element of the vector defines the number of nodes in that cluster, hence
 % the total number of nodes in the global network is sum( par.nodes ) and
 % the number of clusters in the global network is length( par.nodes ).
-par.nodes = [100 150 200];
+par.nodes = [10 15 20];
 
 % used for network generation.  khalf is the mean degree half and alpha is
 % the rewiring probability.
-par.kHalf = [10 20 30];
+par.kHalf = [3 6 5];
 par.alpha = [0.1 0.3 0.6];
 
 
-par.stateoffset = 0; 
+par.stateoffset = 0.6;
+par.upperBound = 0.6;
+par.lowerBound = 0;
 
 % the time variable defines the start and end time of the simulation with a
 % two element vector [tStart tEnd].  the nTime variable defines the number
 % of nodes in the time domain.
-par.time = [0 60]; % [day]
-par.nTime = 600;
+par.time = [0 600]; % [day]
+par.nTime = 200;
 
 % the beta and gamma variables define the infection rate and the immunity
 % rate, respectively, of the SIR model.

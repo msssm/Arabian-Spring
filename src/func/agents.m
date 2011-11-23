@@ -6,7 +6,7 @@
 % Email: heinekas@student.ethz.ch
 % Created: Sun Nov 13 20:05:26 2011 (+0100)
 % Version:
-% Last-Updated: Wed Nov 23 16:36:42 2011 (+0100)
+% Last-Updated: Wed Nov 23 17:13:06 2011 (+0100)
 % By: 
 % Update #: 0
 % -----------------------------------------------------------------------------
@@ -37,6 +37,11 @@ for i=1:numberofagents
     
     % Find a random mindstate (with a curtain offset for one party)
     agent(i).state = (rand(1)+par.stateoffset)/(1+par.stateoffset);
+    if ( agent(i).state >= par.upperBound )
+        agent(i).state = 1;
+    elseif ( agent(i).state <= par.lowerBound )
+        agent(i).state = 0;
+    end
     
     % Find connected agents (neighbours) 
     agent(i).nbr = [];
