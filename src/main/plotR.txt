@@ -1,0 +1,2 @@
+library('igraph')
+SW <- read.csv('/Users/tilemanconring/Arabian-Spring/src/main/SW.csv', header=F)#mygraph1 <- graph.adjacency(SW, mode="directed", weighted='TRUE', add.colnames=NA)mygraph1 <- graph.adjacency(SW, mode="undirected", add.colnames=NA)plot.igraph(mygraph1, vertex.size=1,layout=layout.fruchterman.reingold(mygraph1), vertex.label='')

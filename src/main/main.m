@@ -31,11 +31,11 @@ cd( whereIs.main );
 % element of the vector defines the number of nodes in that cluster, hence
 % the total number of nodes in the global network is sum( par.nodes ) and
 % the number of clusters in the global network is length( par.nodes ).
-par.nodes = [10 15 20];
+par.nodes = [10 20 30];
 
 % used for network generation.  khalf is the mean degree half and alpha is
 % the rewiring probability.
-par.kHalf = [3 6 5];
+par.kHalf = [3 7 14];
 par.alpha = [0.1 0.3 0.6];
 
 

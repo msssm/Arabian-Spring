@@ -72,4 +72,7 @@ T = triu(A);
 A = T+T';
 S( s(ni):par.nodes(ni)+s(ni)-1, s(ni):par.nodes(ni)+s(ni)-1 ) = A;
 end
+
+csvwrite('SW.csv', full(S));
+
 end % small_world(...)
