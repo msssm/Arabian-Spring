@@ -73,19 +73,18 @@ A = T+T';
 S( s(ni):par.nodes(ni)+s(ni)-1, s(ni):par.nodes(ni)+s(ni)-1 ) = A;
 end
 
-for c=1:(length(par.nodes)-1)
-    add=round([(rand(par.between(c),1) * ((s(c+1)-1) - s(c)) + s(c)), (rand(par.between(c),1) * ((s(c+2)-1) - s(c+1)) + s(c+1))]);
+count=1;
+for b=1:(length(par.nodes)-1)
+for c=b:(length(par.nodes)-1)
+    add=round([(rand(par.between(c),1) * ((s(b+1)-1) - s(b)) + s(b)), (rand(par.between(c),1) * ((s(c+2)-1) - s(c+1)) + s(c+1))]);
     for d =1:length(add)
         S(add(d,1),add(d,2))=1;
         S(add(d,2),add(d,1))=1;
     end
+    count=count+1;
 end
-  
-add=round([(rand(par.between(3),1) * ((s(1+1)-1) - s(1)) + s(1)), (rand(par.between(3),1) * ((s(2+2)-1) - s(2+1)) + s(2+1))]);
-for d =1:length(add)
-        S(add(d,1),add(d,2))=1;
-        S(add(d,2),add(d,1))=1;
 end
+
     
     
 csvwrite('SW.csv', full(S));
