@@ -30,7 +30,7 @@ function S = smallworld(par)
 
 S = sparse( sum(par.nodes) );
 
-s = ones( 1, length(par.nodes) );
+s = ones( 1, length(par.nodes)+1 );
 for i = 2:length(s)
     s(i) = s(i-1) + par.nodes(i-1);
 end
@@ -73,6 +73,21 @@ A = T+T';
 S( s(ni):par.nodes(ni)+s(ni)-1, s(ni):par.nodes(ni)+s(ni)-1 ) = A;
 end
 
+for c=1:(length(par.nodes)-1)
+    add=round([(rand(par.between(c),1) * ((s(c+1)-1) - s(c)) + s(c)), (rand(par.between(c),1) * ((s(c+2)-1) - s(c+1)) + s(c+1))]);
+    for d =1:length(add)
+        S(add(d,1),add(d,2))=1;
+        S(add(d,2),add(d,1))=1;
+    end
+end
+  
+add=round([(rand(par.between(3),1) * ((s(1+1)-1) - s(1)) + s(1)), (rand(par.between(3),1) * ((s(2+2)-1) - s(2+1)) + s(2+1))]);
+for d =1:length(add)
+        S(add(d,1),add(d,2))=1;
+        S(add(d,2),add(d,1))=1;
+end
+    
+    
 csvwrite('SW.csv', full(S));
 
 end % small_world(...)
