@@ -1,2 +1,25 @@
+This is a short summary in order to make nice Network Plots with R.
+
+In order to plot you have to load each time the library
+
 library('igraph')
-SW <- read.csv('/Users/tilemanconring/Arabian-Spring/src/main/SW.csv', header=F)#mygraph1 <- graph.adjacency(SW, mode="directed", weighted='TRUE', add.colnames=NA)mygraph1 <- graph.adjacency(SW, mode="undirected", add.colnames=NA)plot.igraph(mygraph1, vertex.size=1,layout=layout.fruchterman.reingold(mygraph1), vertex.label='')
+
+To read in the adjacency matrix from a csv file use:
+SW <- read.csv('/Users/tilemanconring/Arabian-Spring/src/main/SW.csv', header=F)transform it into a matrix:
+mygraph1 <- graph.adjacency(SW, mode="undirected", add.colnames=NA)Plot it. I like the Layout fruchterman.reingold most. Good explanation in the help how the plot is done:
+plot.igraph(mygraph1, vertex.size=1,layout=layout.fruchterman.reingold(mygraph1), vertex.label='')
+
+Save the Layout that we
+lay <- layout.graphopt(mygraph1)
+
+Now the plot is done by and all the nodes will stay at exactly the same place:
+plot.igraph(mygraph1, vertex.size=1,layout=lay, vertex.label='')
+
+In order to give certain nodes and vertices a special color use:
+V(mygraph1)[<node IDS>] $color <-'red'
+E(mygraph1)[<Edge IDS<] $color <-'blue'
+
+To see something you need to use again the plot command. 
+
+We could read in here a list (be careful Matlab starts with 1 while R with 0 => shift indices) with nodes to be colored and to see a spread of the riots.
+
