@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Nov 10 21:20:16 2011 (+0100)
 % Version: 
-% Last-Updated: Wed Nov 23 17:16:41 2011 (+0100)
+% Last-Updated: Sun Dec  4 13:08:01 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 45
+%     Update #: 141
 % -----------------------------------------------------------------------------
 % main.m starts here
 % -----------------------------------------------------------------------------
@@ -31,7 +31,16 @@ cd( whereIs.main );
 % element of the vector defines the number of nodes in that cluster, hence
 % the total number of nodes in the global network is sum( par.nodes ) and
 % the number of clusters in the global network is length( par.nodes ).
-par.nodes = [10 20 30];
+par.nodes = [100 220 300];
+
+% this parameter defines the maximum percentage of updated agents per time
+% step.  it is an upper bound, the actual updatet agents may also be less.
+par.maxAgentUpdate = 0.3;
+
+% this parameter defines the considered depth of neighbor agents of a root
+% agent.  E.g., 1 means consider only the immediate neighbors of root, 2
+% means consider also the neighbors of neighbors and so on.
+par.nbrDepth = 2;
 
 % used for network generation.  khalf is the mean degree half and alpha is
 % the rewiring probability.
@@ -49,21 +58,23 @@ par.lowerBound = 0;
 % two element vector [tStart tEnd].  the nTime variable defines the number
 % of nodes in the time domain.
 par.time = [0 600]; % [day]
-par.nTime = 200;
+par.nTime = 400;
 
 % the beta and gamma variables define the infection rate and the immunity
 % rate, respectively, of the SIR model.
-par.beta = 0.01; % [day^-1]
-par.gamma = 0.0008; % [day^-1]
+par.beta = 0.2; % [day^-1]
+par.gamma = 0.01; % [day^-1]
 
-% the riotOrigin parameter defines the number of the cluster in which the
-% uprise against the government starts.  the riotOriginThreshold is a scalar
-% between 0 and 1 and describes the point at which the riots in riotOrigin
-% spreads over to the other clusters.  0 means that it immediately spreads
-% over, 1 means that it spreads when riotOrigin already is in maximum
-% revolution.
-par.riotOrigin = 1;
-par.riotOriginThreshold = 0.6;
+% --> no longer needed, this information is now contained in the
+%     agent.threshold property (for solver solverSIRv2.m only)!
+% % the riotOrigin parameter defines the number of the cluster in which the
+% % uprise against the government starts.  the riotOriginThreshold is a scalar
+% % between 0 and 1 and describes the point at which the riots in riotOrigin
+% % spreads over to the other clusters.  0 means that it immediately spreads
+% % over, 1 means that it spreads when riotOrigin already is in maximum
+% % revolution.
+% par.riotOrigin = 1;
+% par.riotOriginThreshold = 0.6;
 
 % -----------------------------------------------------------------------------
 % start simulation
@@ -79,7 +90,11 @@ agent = agents( S, par );
 res = solverSIR( agent, par );
 plot( res );
 
-% % test solverSIR.m
+
+% -----------------------------------------------------------------------------
+% playground (delete this later)
+
+% % test solverSIRv2.m
 % n = 1;
 % N = sum( par.nodes );
 % imin = [1 par.nodes(2) par.nodes(3)];
@@ -87,18 +102,44 @@ plot( res );
 
 % for i = 1:length( par.nodes )
 %     for j = 1:par.nodes(i)
-%         agent(n).state = rand();
-%         dummy = [1 randi(8)];
+%         agent(n).state = 0;
+%         dummy = [1 randi([1 6], [1])];
 %         agent(n).nbr = randi( N, dummy );
 %         % agent(n).nbr = randi( [imin(i) imax(i)] , dummy );
-%         agent(n).alpha = 0.6;
+%         agent(n).citizen = i;
+%         agent(n).threshold = 0.6;
+%         n = n+1;
+%     end
+% end
+
+% aList = randi( length(agent), [20 1] );
+% for i = 1:length( aList )
+%     agent(aList(i)).threshold = 1;
+% end
+        
+% [res, initStat, endStat] = solverSIRv2( agent, par );
+% plot( res );
+
+
+% par.nodes = [5 5];
+% n = 1;
+% N = sum( par.nodes );
+% imin = [1 par.nodes(2)];
+% imax = [par.nodes(1) sum(par.nodes(1:2))];
+
+% for i = 1:length( par.nodes )
+%     for j = 1:par.nodes(i)
+%         agent(n).state = randi( [0 1], [1] );
+%         dummy = [1 randi([1 3], [1])];
+%         agent(n).nbr = randi( N, dummy );
+%         % agent(n).nbr = randi( [imin(i) imax(i)] , dummy );
 %         agent(n).citizen = i;
 %         n = n+1;
 %     end
 % end
 
-% res = solverSIR( agent, par );
-% plot( res );
+% state = nbrStateRes( agent(1), agent, 2 );
+
 
 % -----------------------------------------------------------------------------
 % main.m ends here

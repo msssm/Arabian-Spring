@@ -7,9 +7,9 @@
 # Email: fabianw@student.ethz.ch
 # Created: Mon Oct 24 22:33:58 2011 (+0200)
 # Version: 
-# Last-Updated: Sat Nov 12 18:38:30 2011 (+0100)
+# Last-Updated: Sun Dec  4 12:36:46 2011 (+0100)
 #           By: Fabian Wermelinger
-#     Update #: 14
+#     Update #: 17
 # -----------------------------------------------------------------------------
 # README starts here
 # -----------------------------------------------------------------------------
@@ -78,6 +78,37 @@
     several fields assigned to.  Suppose agent(i) is the i-th agent in the
     array of agents, then the following fields are assigned to it:
 
+    + agent(i).state: The state variable defines the current mind state of the
+      agent.  It is a either 0 or 1, where 0 means pro regime and 1 means con
+      regime.
+      
+    + agent(i).nbr: The nbr variable is a list of integers to the j-th neighbor
+      of the i-th agent.  The length of that list is the number of agents who
+      know agent i, and vice versa.
+      
+    + agent(i).threshold: The threshold defines the willingness of an agent to
+      jump over to the group of agents who are con regime.  It is a floating
+      point value on the interval [0 1], where 0 means that the agent will only
+      change its mind if ALL of its immediate neighbors (and higher order
+      neighbors, depending on par.nbrDepth) already possess a state of 1.  On
+      the otherhand, 1 means that the agent will step to the group even if ALL
+      of its immediate (and higher order) neighbors still possess a state
+      of 0.  An agent with threshold 1 is a very radical one and can be seen as
+      an initiator of a later riot.
+    
+    + agent(i).citizen: The citizen variable defines one agents citizenship.
+      That is, the membership to a certain cluster of the global network.  The
+      variable holds an integer representing the number of the cluster where
+      agent(i) is resident of.  For example, agent(i).citizen = 1 means that
+      agent i is citizen of cluster 1.  A node of cluster i shall be connected
+      to a node of cluster j with probability p.  Hence, the agent function
+      takes a first argument p, followed by s arguments, where each of the s
+      arguments is a sparse matrix S, generated with the network function.
+
+    The structure array of agents must be generated with an independent
+    function, taking the global probability p and s sparse matrices S (
+    generated with the network function) as arguments.
+**** Old agent properties
     + agent(i).state   The state variable defines the current mind state of the
                        agent.  It is a numeric value on the interval [0 1],
                        where 0 means pro regime and 1 means con regime.  Hence,
@@ -105,14 +136,8 @@
                        argument p, followed by s arguments, where each of the s
                        arguments is a sparse matrix S, generated with the
                        network function.
-
-    The structure array of agents must be generated with an independent
-    function, taking the global probability p and s sparse matrices S (
-    generated with the network function) as arguments.
-*** TODO Definition of influence on agents (alpha)
 *** Solver
     The solver function is an independent function taking an array of agents
     and a parameter structure as arguments.  It implements the SIR(S) model and
-    solves (or iterates) through a given amount of time.  It generates suitable
-    output for a postprocessing tool.
-*** TODO Post-Processor
+    solves (or iterates) through a given amount of time.  It generates a
+    residual to track the development of the individual mind states over time.
