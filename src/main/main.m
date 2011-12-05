@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Nov 10 21:20:16 2011 (+0100)
 % Version: 
-% Last-Updated: Sun Dec  4 13:08:01 2011 (+0100)
+% Last-Updated: Mon Dec  5 17:10:33 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 141
+%     Update #: 155
 % -----------------------------------------------------------------------------
 % main.m starts here
 % -----------------------------------------------------------------------------
@@ -31,7 +31,7 @@ cd( whereIs.main );
 % element of the vector defines the number of nodes in that cluster, hence
 % the total number of nodes in the global network is sum( par.nodes ) and
 % the number of clusters in the global network is length( par.nodes ).
-par.nodes = [100 220 300];
+par.nodes = [30 52 60];
 
 % this parameter defines the maximum percentage of updated agents per time
 % step.  it is an upper bound, the actual updatet agents may also be less.
@@ -44,11 +44,11 @@ par.nbrDepth = 2;
 
 % used for network generation.  khalf is the mean degree half and alpha is
 % the rewiring probability.
-par.kHalf = [3 7 14];
-par.alpha = [0.1 0.3 0.6];
+par.kHalf = [6 5 3];
+par.alpha = [0.5 0.3 0.1];
 
 % number nodes between the different networks 
-par.between = [4 5 6];
+par.between = [2 4 2];
 
 par.thresholdoffset = 0;
 par.upperBound = 1;
@@ -62,7 +62,7 @@ par.nTime = 400;
 
 % the beta and gamma variables define the infection rate and the immunity
 % rate, respectively, of the SIR model.
-par.beta = 0.2; % [day^-1]
+par.beta = 0.1; % [day^-1]
 par.gamma = 0.01; % [day^-1]
 
 % --> no longer needed, this information is now contained in the
@@ -86,8 +86,20 @@ S = smallworld( par );
 % create agents
 agent = agents( S, par );
 
+k = 0;
+for i = 1:length( agent )
+    if ( agent(i).citizen == 1 )
+        agent(i).threshold = 1;
+        k = k + 1;
+    end
+    if ( k == 4 )
+        break;
+    end
+end
+
+
 % run solver
-res = solverSIR( agent, par );
+[res, initStat, endStat] = solverSIRv2( agent, par );
 plot( res );
 
 
