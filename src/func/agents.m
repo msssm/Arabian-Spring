@@ -17,9 +17,9 @@ function [ agent ] = agents( networkmatrix, par  )
 
 [r c] = size(networkmatrix); 
 numberofagents = r;
-agent = struct('citizen', [], 'state', [], 'nbr', []); 
+agent = struct('citizen', [], 'state', [], 'nbr', [], 'threshold', []); 
 agent(numberofagents).citizen = 0; 
-maxnbr = 0; 
+ 
 
 for i=1:numberofagents
     
@@ -35,14 +35,12 @@ for i=1:numberofagents
         k = k + 1; 
     end
     
-    % Find a random mindstate (with a curtain offset for one party)
-    agent(i).state = (rand(1)+par.stateoffset)/(1+par.stateoffset);
-    if ( agent(i).state >= par.upperBound )
-        agent(i).state = 1;
-    elseif ( agent(i).state <= par.lowerBound )
-        agent(i).state = 0;
-    end
+    % Set state
+    agent(i).state = 0; 
     
+    % Get threshold
+    agent(i).threshold = (rand(1)+par.thresholdoffset)/(1+par.thresholdoffset);
+   
     % Find connected agents (neighbours) 
     agent(i).nbr = [];
     for j=1:c,
@@ -55,22 +53,10 @@ for i=1:numberofagents
         
     end
     
-    % Assigning the number of nodes as alpha
-    [ nr nc] = size(agent(i).nbr); 
-    agent(i).alpha = nc;   
-    
-    % Find maxnbr
-    if maxnbr < nc
-        maxnbr = nc; 
-    end
     
     
 end
 
-% Complete the alpha
-for i=1:numberofagents,
-    agent(i).alpha = agent(i).alpha / maxnbr; 
-end
 
 
 end

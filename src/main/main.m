@@ -50,8 +50,8 @@ par.alpha = [0.1 0.3 0.6];
 % number nodes between the different networks 
 par.between = [4 5 6];
 
-par.stateoffset = 0.6;
-par.upperBound = 0.6;
+par.thresholdoffset = 0;
+par.upperBound = 1;
 par.lowerBound = 0;
 
 % the time variable defines the start and end time of the simulation with a
