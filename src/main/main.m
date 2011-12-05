@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Nov 10 21:20:16 2011 (+0100)
 % Version: 
-% Last-Updated: Mon Dec  5 18:01:26 2011 (+0100)
+% Last-Updated: Mon Dec  5 18:33:59 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 157
+%     Update #: 163
 % -----------------------------------------------------------------------------
 % main.m starts here
 % -----------------------------------------------------------------------------
@@ -31,7 +31,7 @@ cd( whereIs.main );
 % element of the vector defines the number of nodes in that cluster, hence
 % the total number of nodes in the global network is sum( par.nodes ) and
 % the number of clusters in the global network is length( par.nodes ).
-par.nodes = [30 52 60];
+par.nodes = [100 95 160];
 
 % this parameter defines the maximum percentage of updated agents per time
 % step.  it is an upper bound, the actual updatet agents may also be less.
@@ -57,13 +57,13 @@ par.lowerBound = 0;
 % the time variable defines the start and end time of the simulation with a
 % two element vector [tStart tEnd].  the nTime variable defines the number
 % of nodes in the time domain.
-par.time = [0 600]; % [day]
-par.nTime = 400;
+par.time = [0 90]; % [day]
+par.nTime = 300;
 
 % the beta and gamma variables define the infection rate and the immunity
-% rate, respectively, of the SIR model.
-par.beta = 0.1; % [day^-1]
-par.gamma = 0.01; % [day^-1]
+% rate, respectively, of the SIR model.  Each cluster has its own value
+par.beta = [0.1, 0.08, 0.05]; % [day^-1]
+par.gamma = [0.001, 0.01, 0.03]; % [day^-1]
 
 % the riotOrigin parameter defines the number of the cluster in which the
 % uprise against the government starts.  the riotOriginThreshold is a scalar
