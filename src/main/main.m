@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Nov 10 21:20:16 2011 (+0100)
 % Version: 
-% Last-Updated: Mon Dec  5 17:10:33 2011 (+0100)
+% Last-Updated: Mon Dec  5 17:47:21 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 155
+%     Update #: 156
 % -----------------------------------------------------------------------------
 % main.m starts here
 % -----------------------------------------------------------------------------
@@ -44,7 +44,7 @@ par.nbrDepth = 2;
 
 % used for network generation.  khalf is the mean degree half and alpha is
 % the rewiring probability.
-par.kHalf = [6 5 3];
+par.kHalf = [3 2 3];
 par.alpha = [0.5 0.3 0.1];
 
 % number nodes between the different networks 
