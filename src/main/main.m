@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Nov 10 21:20:16 2011 (+0100)
 % Version: 
-% Last-Updated: Mon Dec  5 17:47:21 2011 (+0100)
+% Last-Updated: Mon Dec  5 18:01:26 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 156
+%     Update #: 157
 % -----------------------------------------------------------------------------
 % main.m starts here
 % -----------------------------------------------------------------------------
@@ -65,15 +65,13 @@ par.nTime = 400;
 par.beta = 0.1; % [day^-1]
 par.gamma = 0.01; % [day^-1]
 
-% --> no longer needed, this information is now contained in the
-%     agent.threshold property (for solver solverSIRv2.m only)!
-% % the riotOrigin parameter defines the number of the cluster in which the
-% % uprise against the government starts.  the riotOriginThreshold is a scalar
-% % between 0 and 1 and describes the point at which the riots in riotOrigin
-% % spreads over to the other clusters.  0 means that it immediately spreads
-% % over, 1 means that it spreads when riotOrigin already is in maximum
-% % revolution.
-% par.riotOrigin = 1;
+% the riotOrigin parameter defines the number of the cluster in which the
+% uprise against the government starts.  the riotOriginThreshold is a scalar
+% between 0 and 1 and describes the point at which the riots in riotOrigin
+% spreads over to the other clusters.  0 means that it immediately spreads
+% over, 1 means that it spreads when riotOrigin already is in maximum
+% revolution.
+par.riotOrigin = 1;
 % par.riotOriginThreshold = 0.6;
 
 % -----------------------------------------------------------------------------
