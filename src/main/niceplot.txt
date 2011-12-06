@@ -24,10 +24,16 @@ CairoX11() # or CairoPNG(file="fastgreedy.png")
 
 plot(g, layout=l, vertex.size=3, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.3, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
 
-make a vector c of the nodes to color separately:
 
-c=(1:100)
+read in list with the nodes to color
+c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/c.csv', header=F)
+
+turn it into the right format
+c<-as.matrix(c)
+
 g2 <- subgraph(g, c)
 l2 <- l[ c, ]
 
 plot(g2, layout=l2, vertex.size=3, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.3, add=TRUE, rescale=FALSE)
+
+The last step could be done more often and each time the nodes will be added.
