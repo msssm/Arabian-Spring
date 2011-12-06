@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Dec  1 21:59:51 2011 (+0100)
 % Version: 
-% Last-Updated: Mon Dec  5 18:30:34 2011 (+0100)
+% Last-Updated: Tue Dec  6 20:55:09 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 33
+%     Update #: 38
 % -----------------------------------------------------------------------------
 % solverSIRv2.m starts here
 % -----------------------------------------------------------------------------
@@ -20,13 +20,15 @@ function [res, initStat, finalStat] = solverSIRv2( agent, par )
     
     % create time vector
     t = linspace( par.time(1), par.time(2), par.nTime );
-
+    
     % init residual vector(s)
     res = zeros( length(t), length(par.nodes) + 1 ); % +1 is for global res
     maxUpdatedAgents = int32( par.maxAgentUpdate*length(agent) );
     
     % get initial agent statistics
     initStat = fieldStat( agent );
+    csvBasename = 'riotAgents';
+    writeCSV( [csvBasename num2str(0) '.csv'], agent );
     
     % start iteration
     for i = 1:length( t )
@@ -48,6 +50,9 @@ function [res, initStat, finalStat] = solverSIRv2( agent, par )
                 % SIR removal
                 agent(aList(j)).state = 0;
             end
+        end
+        if ( ~mod(i, par.csvInterval) )
+            writeCSV( [csvBasename num2str(i) '.csv'], agent );
         end
     end
     % get final agent statistics
@@ -166,6 +171,17 @@ function res = calcResidual( agent, par )
     res = tmpRes;
     return;
 
+function writeCSV( filename, agent )
+% write every agent with state 1 to .csv file
+    fid = fopen( filename, 'w' );
+    for i = 1:length( agent )
+        if ( logical(agent(i).state) )
+            fprintf( fid, '%i\n', i );
+        end
+    end
+    fclose( fid );
+    return;
+    
 % -----------------------------------------------------------------------------
 % solverSIRv2.m ends here
 % -----------------------------------------------------------------------------

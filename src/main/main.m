@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Nov 10 21:20:16 2011 (+0100)
 % Version: 
-% Last-Updated: Mon Dec  5 18:33:59 2011 (+0100)
+% Last-Updated: Tue Dec  6 20:41:31 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 163
+%     Update #: 165
 % -----------------------------------------------------------------------------
 % main.m starts here
 % -----------------------------------------------------------------------------
@@ -73,6 +73,11 @@ par.gamma = [0.001, 0.01, 0.03]; % [day^-1]
 % revolution.
 par.riotOrigin = 1;
 % par.riotOriginThreshold = 0.6;
+
+% defines the write interval, measured by the time step, for the .csv disk
+% write for post-processing purposes.  used later for network plotting.  a
+% value of 10 means that every tenth time step a file is written.
+par.csvInterval = 30;
 
 % -----------------------------------------------------------------------------
 % start simulation
