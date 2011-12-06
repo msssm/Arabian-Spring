@@ -5,7 +5,7 @@ In order to plot you have to load each time the library
 library('igraph')
 
 To read in the adjacency matrix from a csv file use:
-SW <- read.csv('/Users/tilemanconring/Arabian-Spring/src/main/SW.csv', header=F)transform it into a matrix:
+SW <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/SW.csv', header=F)transform it into a matrix:
 mygraph1 <- graph.adjacency(SW, mode="undirected", add.colnames=NA)Plot it. I like the Layout fruchterman.reingold most. Good explanation in the help how the plot is done:
 plot.igraph(mygraph1, vertex.size=1,layout=layout.fruchterman.reingold(mygraph1), vertex.label='')
 
