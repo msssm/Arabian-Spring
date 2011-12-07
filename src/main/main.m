@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Nov 10 21:20:16 2011 (+0100)
 % Version: 
-% Last-Updated: Tue Dec  6 20:41:31 2011 (+0100)
+% Last-Updated: Wed Dec  7 16:58:25 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 165
+%     Update #: 170
 % -----------------------------------------------------------------------------
 % main.m starts here
 % -----------------------------------------------------------------------------
@@ -31,11 +31,20 @@ cd( whereIs.main );
 % element of the vector defines the number of nodes in that cluster, hence
 % the total number of nodes in the global network is sum( par.nodes ) and
 % the number of clusters in the global network is length( par.nodes ).
-par.nodes = [100 95 160];
+par.nodes = [10 45 30];
 
 % this parameter defines the maximum percentage of updated agents per time
 % step.  it is an upper bound, the actual updatet agents may also be less.
 par.maxAgentUpdate = 0.3;
+
+% this parameter defines the percentage of agents from the sequential update
+% list to introduce noize by a randomly set mind state with the randi()
+% function.
+par.noisyAgent = 0.05;
+
+% this parameter defines the probability that an agent really knows its
+% neighbor
+par.iKnowYou = 0.85;
 
 % this parameter defines the considered depth of neighbor agents of a root
 % agent.  E.g., 1 means consider only the immediate neighbors of root, 2
@@ -54,9 +63,14 @@ par.thresholdoffset = 0;
 par.upperBound = 1;
 par.lowerBound = 0;
 
+<<<<<<< HEAD
+par.riot = [1 5]; 
+par.stretch = 1; 
+=======
 par.riot = [1 5];
 % stretch rang: [7 30]
 par.stretch = 8; 
+>>>>>>> ba228d6ab2ed33e3ac8345e7b2a8cfcdb9717f1c
 
 % the time variable defines the start and end time of the simulation with a
 % two element vector [tStart tEnd].  the nTime variable defines the number
@@ -65,9 +79,10 @@ par.time = [0 90]; % [day]
 par.nTime = 300;
 
 % the beta and gamma variables define the infection rate and the immunity
-% rate, respectively, of the SIR model.  Each cluster has its own value
-par.beta = [0.1, 0.08, 0.05]; % [day^-1]
-par.gamma = [0.001, 0.01, 0.03]; % [day^-1]
+% rate, respectively, of the SIR model.  Each cluster has its own value.  If
+% beta = 1 & gamma = 0 -> the SIR model is not used at all.
+par.beta = ones( size(par.nodes) ); % [day^-1]
+par.gamma = zeros( size(par.nodes) ); % [day^-1]
 
 % the riotOrigin parameter defines the number of the cluster in which the
 % uprise against the government starts.  the riotOriginThreshold is a scalar
@@ -106,7 +121,7 @@ agent = agents( S, par );
 
 
 % run solver
-[res, initStat, endStat] = solverSIRv2( agent, par );
+[res, initStat, endStat] = solverSIRv3( agent, par );
 plot( res );
 
 
