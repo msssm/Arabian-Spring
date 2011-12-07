@@ -31,20 +31,20 @@ cd( whereIs.main );
 % element of the vector defines the number of nodes in that cluster, hence
 % the total number of nodes in the global network is sum( par.nodes ) and
 % the number of clusters in the global network is length( par.nodes ).
-par.nodes = [10 45 30];
+par.nodes = [200 200 200];
 
 % this parameter defines the maximum percentage of updated agents per time
 % step.  it is an upper bound, the actual updatet agents may also be less.
-par.maxAgentUpdate = 0.3;
+par.maxAgentUpdate = 0.1;
 
 % this parameter defines the percentage of agents from the sequential update
 % list to introduce noize by a randomly set mind state with the randi()
 % function.
-par.noisyAgent = 0.05;
+par.noisyAgent = 0.0;
 
 % this parameter defines the probability that an agent really knows its
 % neighbor
-par.iKnowYou = 0.85;
+par.iKnowYou = 0;
 
 % this parameter defines the considered depth of neighbor agents of a root
 % agent.  E.g., 1 means consider only the immediate neighbors of root, 2
@@ -53,25 +53,23 @@ par.nbrDepth = 2;
 
 % used for network generation.  khalf is the mean degree half and alpha is
 % the rewiring probability.
-par.kHalf = [3 2 3];
-par.alpha = [0.5 0.3 0.1];
+par.kHalf = [3 3 3];
+par.alpha = [0.4 0.4 0.4];
 
 % number nodes between the different networks 
 par.between = [2 4 2];
 
 par.thresholdoffset = 0;
-par.upperBound = 1;
-par.lowerBound = 0;
 
-par.riot = [1 5];
+par.riot = [1 2];
 % stretch rang: [7 30]
-par.stretch = 8; 
+par.stretch = 1; 
 
 % the time variable defines the start and end time of the simulation with a
 % two element vector [tStart tEnd].  the nTime variable defines the number
 % of nodes in the time domain.
-par.time = [0 90]; % [day]
-par.nTime = 300;
+par.time = [0 100]; % [day]
+par.nTime = 200;
 
 % the beta and gamma variables define the infection rate and the immunity
 % rate, respectively, of the SIR model.  Each cluster has its own value.  If
@@ -91,7 +89,7 @@ par.riotOrigin = 1;
 % defines the write interval, measured by the time step, for the .csv disk
 % write for post-processing purposes.  used later for network plotting.  a
 % value of 10 means that every tenth time step a file is written.
-par.csvInterval = 30;
+par.csvInterval = 50;
 
 % -----------------------------------------------------------------------------
 % start simulation
