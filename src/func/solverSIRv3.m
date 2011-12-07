@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Dec  1 21:59:51 2011 (+0100)
 % Version: 
-% Last-Updated: Wed Dec  7 16:54:35 2011 (+0100)
+% Last-Updated: Wed Dec  7 17:28:06 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 45
+%     Update #: 47
 % -----------------------------------------------------------------------------
 % solverSIRv2.m starts here
 % -----------------------------------------------------------------------------
@@ -51,8 +51,8 @@ function [res, initStat, finalStat] = solverSIRv2( agent, par )
         end
         if ( runSolver )
             for j = 1:length( aList )
-                if ( rand() < par.iKnowYou && ...
-                     (1 - agent(aList(j)).threshold) <= ...
+                % rand() < par.iKnowYou;
+                if ( (1 - agent(aList(j)).threshold) <= ...
                      nbrStateRes(agent(aList(j)), agent, par.nbrDepth) )
                     if ( rand() <= par.beta(agent(aList(j)).citizen) )
                         % SIR infection
