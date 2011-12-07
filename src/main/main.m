@@ -35,12 +35,12 @@ par.nodes = [200 200 200];
 
 % this parameter defines the maximum percentage of updated agents per time
 % step.  it is an upper bound, the actual updatet agents may also be less.
-par.maxAgentUpdate = 0.1;
+par.maxAgentUpdate = 0.04;
 
 % this parameter defines the percentage of agents from the sequential update
 % list to introduce noize by a randomly set mind state with the randi()
 % function.
-par.noisyAgent = 0.0;
+par.noisyAgent = 0.01;
 
 % this parameter defines the probability that an agent really knows its
 % neighbor
@@ -53,13 +53,13 @@ par.nbrDepth = 2;
 
 % used for network generation.  khalf is the mean degree half and alpha is
 % the rewiring probability.
-par.kHalf = [3 3 3];
-par.alpha = [0.4 0.4 0.4];
+par.kHalf = [2 2 2];
+par.alpha = [0.2 0.2 0.2];
 
 % number nodes between the different networks 
 par.between = [2 4 2];
 
-par.thresholdoffset = 0;
+par.thresholdoffset = 0.01;
 
 par.riot = [1 2];
 % stretch rang: [7 30]
@@ -69,7 +69,7 @@ par.stretch = 1;
 % two element vector [tStart tEnd].  the nTime variable defines the number
 % of nodes in the time domain.
 par.time = [0 100]; % [day]
-par.nTime = 200;
+par.nTime = 1000;
 
 % the beta and gamma variables define the infection rate and the immunity
 % rate, respectively, of the SIR model.  Each cluster has its own value.  If
