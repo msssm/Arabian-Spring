@@ -10,7 +10,7 @@
 % By: 
 % Update #: 0
 % -----------------------------------------------------------------------------
-% agents.m starts here
+% agents.m starts here 
 % -----------------------------------------------------------------------------
 function [ agent ] = agents( networkmatrix, par  )
 %AGENTS generates the agents out of a network.
@@ -19,7 +19,8 @@ function [ agent ] = agents( networkmatrix, par  )
 numberofagents = r;
 agent = struct('citizen', [], 'state', [], 'nbr', [], 'threshold', []); 
 agent(numberofagents).citizen = 0; 
- 
+
+totrebls =0; 
 
 for i=1:numberofagents
     
@@ -53,6 +54,14 @@ for i=1:numberofagents
         
     end
     
+    % initialise Roit origins 
+    if agent(i).citizen == par.riot(1)
+        if totrebls <= par.riot(2)
+            agent(i).state = 1; 
+        end
+    end
+    
+        
     
     
 end
