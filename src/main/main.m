@@ -54,8 +54,14 @@ par.thresholdoffset = 0;
 par.upperBound = 1;
 par.lowerBound = 0;
 
+<<<<<<< HEAD
 par.riot = [1 5]; 
 par.stretch = 1; 
+=======
+par.riot = [1 5];
+% stretch rang: [7 30]
+par.stretch = 8; 
+>>>>>>> ba228d6ab2ed33e3ac8345e7b2a8cfcdb9717f1c
 
 % the time variable defines the start and end time of the simulation with a
 % two element vector [tStart tEnd].  the nTime variable defines the number
