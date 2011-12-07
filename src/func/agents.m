@@ -57,8 +57,9 @@ for i=1:numberofagents
     % initialise roit origins 
     if agent(i).citizen == par.riot(1)
         if totrebls <= par.riot(2)
-            if 0.5 <= (rand(1)* (par.riot(2)/par.nodes(par.riot(1))) * par.stretch)
-                agent(i).threshold = 1; 
+            if 0.5 <= (rand(1)* (par.riot(2)/par.nodes(par.riot(1))) * (par.stretch *(par.nodes(par.nodes(par.riot(1))/par.riot(2)))))
+                agent(i).threshold = 1;
+                totrebls = totrebls +1; 
             end
         end
     end
