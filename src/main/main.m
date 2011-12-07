@@ -55,7 +55,7 @@ par.upperBound = 1;
 par.lowerBound = 0;
 
 par.riot = [1 5]; 
-par.stretch = 1; 
+par.stretch = 2; 
 
 % the time variable defines the start and end time of the simulation with a
 % two element vector [tStart tEnd].  the nTime variable defines the number
@@ -92,16 +92,16 @@ S = smallworld( par );
 % create agents
 agent = agents( S, par );
 
-k = 0;
-for i = 1:length( agent )
-    if ( agent(i).citizen == 1 )
-        agent(i).threshold = 1;
-        k = k + 1;
-    end
-    if ( k == 4 )
-        break;
-    end
-end
+% k = 0;
+% for i = 1:length( agent )
+%     if ( agent(i).citizen == 1 )
+%         agent(i).threshold = 1;
+%         k = k + 1;
+%     end
+%     if ( k == 4 )
+%         break;
+%     end
+% end
 
 
 % run solver
