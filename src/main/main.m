@@ -31,7 +31,7 @@ cd( whereIs.main );
 % element of the vector defines the number of nodes in that cluster, hence
 % the total number of nodes in the global network is sum( par.nodes ) and
 % the number of clusters in the global network is length( par.nodes ).
-par.nodes = [200 200 200];
+par.nodes = [200 400 600];
 
 % this parameter defines the maximum percentage of updated agents per time
 % step.  it is an upper bound, the actual updatet agents may also be less.
@@ -54,14 +54,14 @@ par.nbrDepth = 2;
 % used for network generation.  khalf is the mean degree half and alpha is
 % the rewiring probability.
 par.kHalf = [2 2 2];
-par.alpha = [0.2 0.2 0.2];
+par.alpha = [0.2 0.4 0.6];
 
 % number nodes between the different networks 
 par.between = [2 4 2];
 
 par.thresholdoffset = 0.01;
 
-par.riot = [1 2];
+par.riot = [1 1];
 % stretch rang: [7 30]
 par.stretch = 1; 
 
@@ -89,7 +89,7 @@ par.riotOrigin = 1;
 % defines the write interval, measured by the time step, for the .csv disk
 % write for post-processing purposes.  used later for network plotting.  a
 % value of 10 means that every tenth time step a file is written.
-par.csvInterval = 50;
+par.csvInterval = 250;
 
 % -----------------------------------------------------------------------------
 % start simulation
