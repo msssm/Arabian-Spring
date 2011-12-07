@@ -31,16 +31,16 @@ cd( whereIs.main );
 % element of the vector defines the number of nodes in that cluster, hence
 % the total number of nodes in the global network is sum( par.nodes ) and
 % the number of clusters in the global network is length( par.nodes ).
-par.nodes = [10 45 30];
+par.nodes = [50 100 80];
 
 % this parameter defines the maximum percentage of updated agents per time
 % step.  it is an upper bound, the actual updatet agents may also be less.
-par.maxAgentUpdate = 0.3;
+par.maxAgentUpdate = 0.6;
 
 % this parameter defines the percentage of agents from the sequential update
 % list to introduce noize by a randomly set mind state with the randi()
 % function.
-par.noisyAgent = 0.05;
+par.noisyAgent = 0.02;
 
 % this parameter defines the probability that an agent really knows its
 % neighbor
@@ -63,14 +63,13 @@ par.thresholdoffset = 0;
 par.upperBound = 1;
 par.lowerBound = 0;
 
-<<<<<<< HEAD
+
 par.riot = [1 5]; 
 par.stretch = 1; 
-=======
-par.riot = [1 5];
+par.riot = [1 1];
 % stretch rang: [7 30]
 par.stretch = 8; 
->>>>>>> ba228d6ab2ed33e3ac8345e7b2a8cfcdb9717f1c
+
 
 % the time variable defines the start and end time of the simulation with a
 % two element vector [tStart tEnd].  the nTime variable defines the number
