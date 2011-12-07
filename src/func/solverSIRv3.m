@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Dec  1 21:59:51 2011 (+0100)
 % Version: 
-% Last-Updated: Wed Dec  7 17:28:06 2011 (+0100)
+% Last-Updated: Wed Dec  7 17:44:16 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 47
+%     Update #: 48
 % -----------------------------------------------------------------------------
 % solverSIRv2.m starts here
 % -----------------------------------------------------------------------------
@@ -63,7 +63,7 @@ function [res, initStat, finalStat] = solverSIRv2( agent, par )
                                                    % state to 1.
                     end
                 else
-                    agent(aList(j)).state = 0; % if the neighbor residual is
+                    %agent(aList(j)).state = 0; % if the neighbor residual is
                                                % less than the agent threshold,
                                                % set the agents state to 0,
                                                % regardless what is was before.
