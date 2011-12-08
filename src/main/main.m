@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Nov 10 21:20:16 2011 (+0100)
 % Version: 
-% Last-Updated: Wed Dec  7 16:58:25 2011 (+0100)
+% Last-Updated: Thu Dec  8 22:03:01 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 170
+%     Update #: 172
 % -----------------------------------------------------------------------------
 % main.m starts here
 % -----------------------------------------------------------------------------
@@ -42,10 +42,6 @@ par.maxAgentUpdate = 0.04;
 % function.
 par.noisyAgent = 0.01;
 
-% this parameter defines the probability that an agent really knows its
-% neighbor
-par.iKnowYou = 0;
-
 % this parameter defines the considered depth of neighbor agents of a root
 % agent.  E.g., 1 means consider only the immediate neighbors of root, 2
 % means consider also the neighbors of neighbors and so on.
@@ -77,15 +73,6 @@ par.nTime = 1000;
 par.beta = ones( size(par.nodes) ); % [day^-1]
 par.gamma = zeros( size(par.nodes) ); % [day^-1]
 
-% the riotOrigin parameter defines the number of the cluster in which the
-% uprise against the government starts.  the riotOriginThreshold is a scalar
-% between 0 and 1 and describes the point at which the riots in riotOrigin
-% spreads over to the other clusters.  0 means that it immediately spreads
-% over, 1 means that it spreads when riotOrigin already is in maximum
-% revolution.
-par.riotOrigin = 1;
-% par.riotOriginThreshold = 0.6;
-
 % defines the write interval, measured by the time step, for the .csv disk
 % write for post-processing purposes.  used later for network plotting.  a
 % value of 10 means that every tenth time step a file is written.
@@ -95,78 +82,8 @@ par.csvInterval = 250;
 % start simulation
 % -----------------------------------------------------------------------------
 
-% create network
-S = smallworld( par );
-
-% create agents
-agent = agents( S, par );
-
-% k = 0;
-% for i = 1:length( agent )
-%     if ( agent(i).citizen == 1 )
-%         agent(i).threshold = 1;
-%         k = k + 1;
-%     end
-%     if ( k == 4 )
-%         break;
-%     end
-% end
-
-
-% run solver
-[res, initStat, endStat] = solverSIRv3( agent, par );
+[res, initStat, endStat, agent, S] = runSim( par );
 plot( res );
-
-
-% -----------------------------------------------------------------------------
-% playground (delete this later)
-
-% % test solverSIRv2.m
-% n = 1;
-% N = sum( par.nodes );
-% imin = [1 par.nodes(2) par.nodes(3)];
-% imax = [par.nodes(1) sum(par.nodes(1:2)) sum(par.nodes)];
-
-% for i = 1:length( par.nodes )
-%     for j = 1:par.nodes(i)
-%         agent(n).state = 0;
-%         dummy = [1 randi([1 6], [1])];
-%         agent(n).nbr = randi( N, dummy );
-%         % agent(n).nbr = randi( [imin(i) imax(i)] , dummy );
-%         agent(n).citizen = i;
-%         agent(n).threshold = 0.6;
-%         n = n+1;
-%     end
-% end
-
-% aList = randi( length(agent), [20 1] );
-% for i = 1:length( aList )
-%     agent(aList(i)).threshold = 1;
-% end
-        
-% [res, initStat, endStat] = solverSIRv2( agent, par );
-% plot( res );
-
-
-% par.nodes = [5 5];
-% n = 1;
-% N = sum( par.nodes );
-% imin = [1 par.nodes(2)];
-% imax = [par.nodes(1) sum(par.nodes(1:2))];
-
-% for i = 1:length( par.nodes )
-%     for j = 1:par.nodes(i)
-%         agent(n).state = randi( [0 1], [1] );
-%         dummy = [1 randi([1 3], [1])];
-%         agent(n).nbr = randi( N, dummy );
-%         % agent(n).nbr = randi( [imin(i) imax(i)] , dummy );
-%         agent(n).citizen = i;
-%         n = n+1;
-%     end
-% end
-
-% state = nbrStateRes( agent(1), agent, 2 );
-
 
 % -----------------------------------------------------------------------------
 % main.m ends here

@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Dec  1 21:59:51 2011 (+0100)
 % Version: 
-% Last-Updated: Wed Dec  7 17:44:16 2011 (+0100)
+% Last-Updated: Thu Dec  8 22:01:05 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 48
+%     Update #: 49
 % -----------------------------------------------------------------------------
 % solverSIRv2.m starts here
 % -----------------------------------------------------------------------------
@@ -51,7 +51,6 @@ function [res, initStat, finalStat] = solverSIRv2( agent, par )
         end
         if ( runSolver )
             for j = 1:length( aList )
-                % rand() < par.iKnowYou;
                 if ( (1 - agent(aList(j)).threshold) <= ...
                      nbrStateRes(agent(aList(j)), agent, par.nbrDepth) )
                     if ( rand() <= par.beta(agent(aList(j)).citizen) )
