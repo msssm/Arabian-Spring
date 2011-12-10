@@ -6,7 +6,7 @@ library(igraph)library(Cairo)
 
 Read in Network Data and turn it into a matrix
 
-SW <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/SW.csv', header=F)
+SW <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/batchRun__kHalf=4-4-4_maxUpdate=0.02_noize=0_nbrDepth=2/SW.csv', header=F)
 
 g <- graph.adjacency(SW, mode="undirected", add.colnames=NA)
 l <- layout.fruchterman.reingold(g)
@@ -16,14 +16,14 @@ fcs <- fastgreedy.community(simplify(as.undirected(g)))
 
 fcs <- community.to.membership(g, fcs$merges, steps=which.max(fcs$modularity)-1 )
 
-CairoPDF(file="network1.pdf", pointsize=12)
+CairoPDF(file="network1000.pdf", pointsize=12)
 
 plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
 
 
 read in list with the nodes to color and turn it into the right format
 
-c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/riotAgents30.csv', header=F)
+c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/batchRun__kHalf=4-4-4_maxUpdate=0.02_noize=0_nbrDepth=2/riotAgents1000.csv', header=F)
 
 c<-as.matrix(c)
 
