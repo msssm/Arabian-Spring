@@ -13,5 +13,11 @@
      "11pt"
      "a4paper"
      "header"
-     "./titlepage/cover")))
+     "./titlepage/cover"
+     "individualContribution"
+     "introAndMotivation"
+     "descriptionOfTheModel"
+     "implementation"
+     "discussionOfResults"
+     "summary")))
 

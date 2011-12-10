@@ -43,7 +43,7 @@
      "psfrag"
      "xcolor"
      "graphicx"
-     "dvips"
+     "pdftex"
      "fancyhdr"
      "cite"
      "caption"
