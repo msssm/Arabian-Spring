@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Dec  8 20:15:16 2011 (+0100)
 % Version: 
-% Last-Updated: Thu Dec  8 22:01:19 2011 (+0100)
+% Last-Updated: Sat Dec 10 13:57:07 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 15
+%     Update #: 16
 % -----------------------------------------------------------------------------
 % mainBatch.m starts here
 % -----------------------------------------------------------------------------
@@ -25,9 +25,9 @@ cd( whereIs.main );
 
 % -----------------------------------------------------------------------------
 % batch parameter
-batch.kHalf = { [2 2 2] }; % Sebastian
+% batch.kHalf = { [2 2 2] }; % Sebastian
 % batch.kHalf = { [4 4 4] }; % Tile
-% batch.kHalf = { [6 6 6] }; % Fabian
+batch.kHalf = { [6 6 6] }; % Fabian
 batch.maxAgentUpdate = [0.02 0.04 0.08];
 batch.noisyAgent = [0 0.01 0.1];
 batch.nbrDepth = [1 2];
