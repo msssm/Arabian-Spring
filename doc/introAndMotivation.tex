@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Sat Dec 10 14:45:04 2011 (+0100)
 % Version: 
-% Last-Updated: Sat Dec 10 14:45:35 2011 (+0100)
+% Last-Updated: Sun Dec 11 15:55:16 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 1
+%     Update #: 14
 % -----------------------------------------------------------------------------
 % introAndMotivation.tex starts here
 % -----------------------------------------------------------------------------
@@ -15,6 +15,47 @@
 \section{Introduction and Motivation}
 \label{sec:introAndMotivation}
 
+A few months ago in some Arabian countries there were some kind of
+revolutionary movements. In some countries they were successful while in other
+countries they struggled. Our aim of this research project is to understand the
+mechanisms of the success of the Arabian Spring movements.  We want to build a
+society based on a small world graph with, e.g. three clusters, where each
+cluster represents a country adjacent to another. These clusters shall be
+formed with individual probabilities, generating different homogeneity of each
+country as such. With the focus on one country, we want to analyze the
+spreading of opinion changes between nodes (where each node has an agent
+assigned to) in that particular cluster. Further, the propagation of the
+opinion formation across the clusters shall be investigated.
+
+Previous research showed that behavioral diffusion in social networks is
+different from, \eg, the spread of an infectious desease
+\cite{centola2010spread}.  In social networks, an individual usually requires
+multiple contact with another individual(s) in order to change its behavior.
+Also, the depth and speed of the behavioral diffusion is larger in small world
+networks than randomly generated networks \cite{centola2010spread}.  The main
+content of this work is the development of a model to simulate the behavioral
+diffusion for events such as the Arabian Spring \cite{timeLineArabSpring}.  The
+network is composed of three sub-networks, each representing a country.  One
+question to follow is to find out the influence on the whole system if these
+countries were constructed as small world networks or random networks.  In one
+of these countries a ``seed'' is placed to initiate an imbalance in the
+society's behavior.  The information then spreads across the network depending
+on the behavior of its neighbors (and may be also its higher order neighbors,
+\ie, neighbors of neighbors and so on).  The diffusion across countries is
+realized through the link between two individuals from different countries who
+know each other.  However, the threshold of willingness to change behavior may
+be different for an individual of the country which is the root of the
+behavioral change than that of an individual of a neighbor country, since it is
+only affected indirectly.
+
+Once a model has been developed, the development of the behavioral diffusion of
+the model may be compared to the results of the experiment conducted in
+\cite{centola2010spread}, which is of similar type to the Arab Spring.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End: 
 
 % -----------------------------------------------------------------------------
 % introAndMotivation.tex ends here

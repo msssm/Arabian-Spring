@@ -5,9 +5,9 @@
 %% Email: fabianw@student.ethz.ch
 %% Created: Sat Jul 23 19:36:14 2011 (+0200)
 %% Version: 
-%% Last-Updated: Sat Dec 10 14:26:45 2011 (+0100)
+%% Last-Updated: Sun Dec 11 16:18:17 2011 (+0100)
 %%           By: Fabian Wermelinger
-%%     Update #: 5
+%%     Update #: 8
 %% ----------------------------------------------------------------------------
 %%% master.tex starts here
 %% ----------------------------------------------------------------------------
@@ -31,7 +31,7 @@
 \newcommand\Top{\rule{0pt}{3ex}} %for tables
 \newcommand\Bot{\rule[-1.5ex]{0pt}{0pt}} %for tables
 
-\def\bibdir{./references} %path to library
+% \def\bibdir{./references} %path to library
 \def\bibtitle{Refrences} %bib title
 
 %------------------------------------------------------------------------------
@@ -42,6 +42,9 @@
 %------------------------------------------------------------------------------
 \input{./titlepage/cover}
 \newpage
+
+% Declaration of Originality
+\input{declarationOfOriginality.tex}
 
 %Abstract
 %------------------------------------------------------------------------------
@@ -87,7 +90,7 @@
 \renewcommand{\bibname}{\bibtitle}
 \bibliographystyle{siam}
 %\addcontentsline{toc}{section}{References}
-\bibliography{\bibdir/projectLib}
+\bibliography{projectLib}
 
 %Nomenclature
 % \markboth{\nomname}{\nomname}

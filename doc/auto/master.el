@@ -1,10 +1,11 @@
 (TeX-add-style-hook "master"
  (lambda ()
+    (LaTeX-add-bibliographies
+     "projectLib")
     (TeX-add-symbols
      '("nomunit" 1)
      "Top"
      "Bot"
-     "bibdir"
      "bibtitle")
     (TeX-run-style-hooks
      "latex2e"
@@ -14,6 +15,7 @@
      "a4paper"
      "header"
      "./titlepage/cover"
+     "declarationOfOriginality"
      "individualContribution"
      "introAndMotivation"
      "descriptionOfTheModel"
