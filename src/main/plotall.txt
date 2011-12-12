@@ -24,7 +24,7 @@ c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/batchRun__kHalf=
 
 c<-as.matrix(c)
 
-g2 <- subgraph(g, c)
+g2 <- subgraph(g, c-1)
 l2 <- l[ c, ]
 
 plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
@@ -39,7 +39,7 @@ c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/batchRun__kHalf=
 
 c<-as.matrix(c)
 
-g2 <- subgraph(g, c)
+g2 <- subgraph(g, c-1)
 l2 <- l[ c, ]
 
 plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
@@ -54,7 +54,7 @@ c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/batchRun__kHalf=
 
 c<-as.matrix(c)
 
-g2 <- subgraph(g, c)
+g2 <- subgraph(g, c-1)
 l2 <- l[ c, ]
 
 plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
@@ -69,7 +69,7 @@ c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/batchRun__kHalf=
 
 c<-as.matrix(c)
 
-g2 <- subgraph(g, c)
+g2 <- subgraph(g, c-1)
 l2 <- l[ c, ]
 
 plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
