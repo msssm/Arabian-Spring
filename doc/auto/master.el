@@ -21,5 +21,6 @@
      "descriptionOfTheModel"
      "implementation"
      "discussionOfResults"
-     "summary")))
+     "summary"
+     "codeSolver")))
 
