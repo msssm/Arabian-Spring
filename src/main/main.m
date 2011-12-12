@@ -40,17 +40,17 @@ par.maxAgentUpdate = 0.04;
 % this parameter defines the percentage of agents from the sequential update
 % list to introduce noize by a randomly set mind state with the randi()
 % function.
-par.noisyAgent = 0.01;
+par.noisyAgent = 0.0;
 
 % this parameter defines the considered depth of neighbor agents of a root
 % agent.  E.g., 1 means consider only the immediate neighbors of root, 2
 % means consider also the neighbors of neighbors and so on.
-par.nbrDepth = 2;
+par.nbrDepth = 1;
 
 % used for network generation.  khalf is the mean degree half and alpha is
 % the rewiring probability.
 par.kHalf = [2 2 2];
-par.alpha = [0.2 0.4 0.6];
+par.alpha = [0.1 0.1 0.1];
 
 % number nodes between the different networks 
 par.between = [2 4 2];
@@ -73,7 +73,7 @@ par.stretch = 1;
 % two element vector [tStart tEnd].  the nTime variable defines the number
 % of nodes in the time domain.
 par.time = [0 100]; % [day]
-par.nTime = 1000;
+par.nTime = 500;
 
 % the beta and gamma variables define the infection rate and the immunity
 % rate, respectively, of the SIR model.  Each cluster has its own value.  If
@@ -89,6 +89,8 @@ par.csvInterval = 250;
 % -----------------------------------------------------------------------------
 % start simulation
 % -----------------------------------------------------------------------------
+
+
 
 [res, initStat, endStat, agent, S] = runSim( par );
 plot( res );
