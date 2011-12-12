@@ -1,0 +1,77 @@
+
+
+SW <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/batchRun__kHalf=6-6-6_maxUpdate=0.08_noize=0.1_nbrDepth=1/SW.csv', header=F)
+
+g <- graph.adjacency(SW, mode="undirected", add.colnames=NA)
+l <- layout.fruchterman.reingold(g)
+l <- layout.norm(l, -1,1, -1,1) 
+
+fcs <- fastgreedy.community(simplify(as.undirected(g)))
+
+fcs <- community.to.membership(g, fcs$merges, steps=which.max(fcs$modularity)-1 )
+
+CairoPDF(file="network0.pdf", pointsize=12)
+
+plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
+
+dev.off()
+
+CairoPDF(file="network250.pdf", pointsize=12)
+
+plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
+
+c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/batchRun__kHalf=6-6-6_maxUpdate=0.08_noize=0.1_nbrDepth=1/riotAgents250.csv', header=F)
+
+c<-as.matrix(c)
+
+g2 <- subgraph(g, c)
+l2 <- l[ c, ]
+
+plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
+
+dev.off()
+
+CairoPDF(file="network500.pdf", pointsize=12)
+
+plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
+
+c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/batchRun__kHalf=6-6-6_maxUpdate=0.08_noize=0.1_nbrDepth=1/riotAgents500.csv', header=F)
+
+c<-as.matrix(c)
+
+g2 <- subgraph(g, c)
+l2 <- l[ c, ]
+
+plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
+
+dev.off()
+
+CairoPDF(file="network750.pdf", pointsize=12)
+
+plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
+
+c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/batchRun__kHalf=6-6-6_maxUpdate=0.08_noize=0.1_nbrDepth=1/riotAgents750.csv', header=F)
+
+c<-as.matrix(c)
+
+g2 <- subgraph(g, c)
+l2 <- l[ c, ]
+
+plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
+
+dev.off()
+
+CairoPDF(file="network1000.pdf", pointsize=12)
+
+plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
+
+c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/batchRun__kHalf=6-6-6_maxUpdate=0.08_noize=0.1_nbrDepth=1/riotAgents1000.csv', header=F)
+
+c<-as.matrix(c)
+
+g2 <- subgraph(g, c)
+l2 <- l[ c, ]
+
+plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
+
+dev.off()
