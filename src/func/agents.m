@@ -46,6 +46,10 @@ for i=1:numberofagents
     % direction to favour the system or the rebls
     agent(i).threshold = (rand(1)+par.thresholdoffset)/(1+par.thresholdoffset);
    
+    % handle fixed thresholds
+    if rand(1) <= par.fixedthreshold(1)
+        agent(i).threshold = par.fixedthreshold(2); 
+    end
     % Find connected agents (neighbours)
     % goes through the network and finds all the neighbours of the current
     % agent so the solver saves time.

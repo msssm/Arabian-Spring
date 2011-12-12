@@ -1,17 +1,17 @@
 % --------------------------------*- Matlab -*---------------------------------
-% Filename: solverSIRv2.m
-% Description: New, modified version of solverSIR.m
+% Filename: solverSIRv3.m
+% Description: New, modified version of solverSIR.m, version 3
 % Author: Fabian Wermelinger
 % Email: fabianw@student.ethz.ch
 % Created: Thu Dec  1 21:59:51 2011 (+0100)
 % Version: 
-% Last-Updated: Thu Dec  8 22:01:05 2011 (+0100)
+% Last-Updated: Mon Dec 12 19:38:21 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 49
+%     Update #: 50
 % -----------------------------------------------------------------------------
-% solverSIRv2.m starts here
+% solverSIRv3.m starts here
 % -----------------------------------------------------------------------------
-function [res, initStat, finalStat] = solverSIRv2( agent, par )
+function [res, initStat, finalStat] = solverSIRv3( agent, par )
 % Solve the opinion formation problem using a SIR model.
     if ( length(agent) ~= sum(par.nodes) )
         [stack, I] = dbstack( '-completenames' );
@@ -205,5 +205,5 @@ function writeCSV( filename, agent )
     return;
     
 % -----------------------------------------------------------------------------
-% solverSIRv2.m ends here
+% solverSIRv3.m ends here
 % -----------------------------------------------------------------------------

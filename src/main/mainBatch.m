@@ -28,8 +28,8 @@ cd( whereIs.main );
 batch.kHalf = { [2 2 2] }; % Sebastian
 % batch.kHalf = { [4 4 4] }; % Tile
 % batch.kHalf = { [6 6 6] }; % Fabian
-batch.maxAgentUpdate = [0.02 0.04 0.08];
-batch.noisyAgent = [0 0.01 0.1];
+batch.maxAgentUpdate = [0.02 0.08];
+batch.noisyAgent = [0 0.1];
 batch.nbrDepth = [1 2];
 
 % -----------------------------------------------------------------------------
@@ -42,6 +42,7 @@ par.kHalf = [2 2 2];
 par.alpha = [0.2 0.4 0.6];
 par.between = [2 4 2];
 par.thresholdoffset = 0.01;
+par.fixedthreshold = [0.5, 0.6]; 
 par.riot = [1 1];
 par.stretch = 1; 
 par.time = [0 100];
@@ -49,6 +50,7 @@ par.nTime = 1000;
 par.beta = ones( size(par.nodes) );
 par.gamma = zeros( size(par.nodes) );
 par.csvInterval = 250;
+
 
 % -----------------------------------------------------------------------------
 % run batch

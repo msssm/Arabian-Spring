@@ -61,6 +61,11 @@ par.between = [2 4 2];
 % likewise for negative thresholdoffsets.
 par.thresholdoffset = 0.01;
 
+% fix threshold for part of the network
+% the first parameter is the partion in procentige that gets a fixed
+% threshold. The second is the threshold these agents get.
+par.fixedthreshold = [0.5 , 0.4]; 
+
 % this parameter determines in which country and how many rebles are placed
 % in the network.
 % riot(1) is the country, riot(2) is the number of rebls.

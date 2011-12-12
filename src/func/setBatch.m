@@ -28,8 +28,8 @@ function [par, dirname]  = setBatch( par, batch, i, j, k, l );
     maxAgent = ['maxUpdate=' num2str( batch.maxAgentUpdate(j) )];
     noize = ['noize=' num2str( batch.noisyAgent(k) )];
     nbrDepth = ['nbrDepth=' num2str( batch.nbrDepth(l) )];
-
-    dirname = ['batchRun__' kHalf '_' maxAgent '_' noize '_' nbrDepth];
+    fixedthreshold = ['fixedthreshold=' num2str(par.fixedthreshold(2))]; 
+    dirname = ['batchRun__' kHalf '_' maxAgent '_' noize '_' nbrDepth '_' fixedthreshold];
     return;
     
 % -----------------------------------------------------------------------------
