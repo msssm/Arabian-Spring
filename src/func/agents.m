@@ -20,6 +20,7 @@ numberofagents = r;
 agent = struct('citizen', [], 'state', [], 'nbr', [], 'threshold', []); 
 agent(numberofagents).citizen = 0; 
 
+% counts the number of already initialised rebls
 totrebls =0; 
 
 for i=1:numberofagents
@@ -37,12 +38,17 @@ for i=1:numberofagents
     end
     
     % Set state
+    % Says whether the agent is rioting (1) or not (2).
     agent(i).state = 0; 
     
     % Get threshold
+    % The threshold is randomly generated and can be set off in either
+    % direction to favour the system or the rebls
     agent(i).threshold = (rand(1)+par.thresholdoffset)/(1+par.thresholdoffset);
    
-    % Find connected agents (neighbours) 
+    % Find connected agents (neighbours)
+    % goes through the network and finds all the neighbours of the current
+    % agent so the solver saves time.
     agent(i).nbr = [];
     for j=1:c,
         
@@ -55,6 +61,16 @@ for i=1:numberofagents
     end
     
     % initialise roit origins 
+    % the number of rebles are placed in the network. How far the rioting
+    % agents are apart depends on par.strech. for par.stretch = 2 or larger
+    % the rebles are in the closest neighbourhood of each other, while for
+    % small the rebles are placed further apart. for to small par.stretch
+    % values the distance between the rebles might be larger than the
+    % network so not all rebls are placed in the network. 
+    % for par.stretch smaller(or equal) to 0.5 no agents will beplaced at
+    % all.
+    % the rebles are caracterised by a threshold of 1. That means that they
+    % will turn against the system as soon as they are updated.
     if agent(i).citizen == par.riot(1)
         if totrebls <= par.riot(2)
             if 0.5 <= (rand(1)*par.stretch)

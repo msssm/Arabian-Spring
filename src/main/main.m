@@ -55,10 +55,18 @@ par.alpha = [0.2 0.4 0.6];
 % number nodes between the different networks 
 par.between = [2 4 2];
 
+% Gives the possibility to build in a favour for the rebls or the system. 
+% for possitive thresholdoffsets the thresholds of all the agents gets a
+% bit higher, but by less than the given offset.
+% likewise for negative thresholdoffsets.
 par.thresholdoffset = 0.01;
 
+% this parameter determines in which country and how many rebles are placed
+% in the network.
+% riot(1) is the country, riot(2) is the number of rebls.
 par.riot = [1 1];
-% stretch rang: [7 30]
+% stretch rang: [0.5 2]
+% determines how far the rebls are placed apart. (inverse proportional)
 par.stretch = 1; 
 
 % the time variable defines the start and end time of the simulation with a
