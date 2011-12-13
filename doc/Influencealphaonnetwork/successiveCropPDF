@@ -1,0 +1,28 @@
+#!/bin/bash
+# Filename: successiveCropPDF
+# Description: crop white space from pdfs
+# Author: Fabian Wermelinger
+# Email: fabianw@student.ethz.ch
+# Created: Mon Dec 12 20:13:03 2011 (+0100)
+# Version: 
+# Last-Updated: Tue Dec 13 15:04:27 2011 (+0100)
+#           By: Fabian Wermelinger
+#     Update #: 15
+# -----------------------------------------------------------------------------
+# successiveCropPDF starts here
+# -----------------------------------------------------------------------------
+MAIN=`pwd`
+for i in *ando*
+do
+    cd "$i"
+    for j in *.pdf
+    do
+        pdfcrop "$j"
+    done
+    cd $MAIN
+done
+exit 0
+
+# -----------------------------------------------------------------------------
+# successiveCropPDF ends here
+# -----------------------------------------------------------------------------
