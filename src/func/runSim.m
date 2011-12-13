@@ -13,8 +13,8 @@
 % -----------------------------------------------------------------------------
 function [res, initStat, endStat, agent, S] = runSim( par )
 % run a simulation
-    S = randomgraph( par ); % create random graph network
-    % S = smallworld( par ); %create small world network
+    % S = randomgraph( par ); % create random graph network
+    S = smallworld( par ); %create small world network
     agent = agents( S, par ); % create agents
     [res, initStat, endStat] = solverSIRv3( agent, par ); % run solver
     return;

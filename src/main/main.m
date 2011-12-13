@@ -50,7 +50,7 @@ par.nbrDepth = 1;
 % used for network generation.  khalf is the mean degree half and alpha is
 % the rewiring probability.
 par.kHalf = [2 2 2];
-par.alpha = [0.1 0.1 0.1];
+par.alpha = [1 1 0.2];
 
 % number nodes between the different networks 
 par.between = [2 4 2];
