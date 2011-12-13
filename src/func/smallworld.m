@@ -28,13 +28,16 @@ function S = smallworld(par)
 % OUPUT
 % A: [n n] sparse symmetric adjacency matrix representing the generated graph
 
+%generate empty sparce matrix
 S = sparse( sum(par.nodes) );
 
+%generate the vector with the positions of the sub networks that cluster
 s = ones( 1, length(par.nodes)+1 );
 for i = 2:length(s)
     s(i) = s(i-1) + par.nodes(i-1);
 end
-    
+
+%generate small world network
 for ni = 1:length(par.nodes)
 n = par.nodes(ni);
 % Construct a regular lattice: a graph with n nodes, each connected to k
@@ -70,9 +73,12 @@ end
 % implies A(i,j)==1, A(i,j) might be zero.
 T = triu(A);
 A = T+T';
+
+%write the generated subnetwork at its position in the empty sparse matrix
 S( s(ni):par.nodes(ni)+s(ni)-1, s(ni):par.nodes(ni)+s(ni)-1 ) = A;
 end
 
+%connect subnetworks with a specified number of connections
 count=1;
 for b=1:(length(par.nodes)-1)
 for c=b:(length(par.nodes)-1)
@@ -86,7 +92,7 @@ end
 end
 
     
-    
+%export the network as a .csv file     
 csvwrite('SW.csv', full(S));
 
 end % small_world(...)
