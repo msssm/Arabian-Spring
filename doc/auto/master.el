@@ -2,6 +2,8 @@
  (lambda ()
     (LaTeX-add-bibliographies
      "projectLib")
+    (LaTeX-add-environments
+     "definition")
     (TeX-add-symbols
      '("nomunit" 1)
      "Top"
@@ -22,5 +24,8 @@
      "implementation"
      "discussionOfResults"
      "summary"
+     "codeMain"
+     "codesmallworld"
+     "coderandomgraph"
      "codeSolver")))
 

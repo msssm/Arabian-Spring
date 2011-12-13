@@ -5,15 +5,21 @@
 % Email: fabianw@student.ethz.ch
 % Created: Mon Dec 12 19:08:07 2011 (+0100)
 % Version: 
-% Last-Updated: Mon Dec 12 19:08:11 2011 (+0100)
+% Last-Updated: Tue Dec 13 22:32:56 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 1
+%     Update #: 4
 % -----------------------------------------------------------------------------
 % implementation.tex starts here
 % -----------------------------------------------------------------------------
 
 \section{Implementation in \matlab}
 \label{sec:implementationMatlab}
+
+The implementation in \matlab is mainly based on functions, which are
+sequentially called in a main script file.  All the model parameter are defined
+in a single structure, which is passed to all the called functions.  The
+parameter and their meaning are also declared in the main script file.  The
+main script can be found in Appendix~\ref{sec:main.m}.
 
 \input{implementNetworks.tex}
 \input{implementAgents.tex}

@@ -27,6 +27,7 @@
      "eg"
      "ie")
     (TeX-run-style-hooks
+     "algorithmic"
      "appendix"
      "setspace"
      "pict2e"

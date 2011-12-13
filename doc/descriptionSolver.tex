@@ -1,0 +1,81 @@
+% ---------------------------------*- Latex -*---------------------------------
+% Filename: descriptionSolver.tex
+% Description: 
+% Author: Fabian Wermelinger
+% Email: fabianw@student.ethz.ch
+% Created: Tue Dec 13 20:40:11 2011 (+0100)
+% Version: 
+% Last-Updated: Tue Dec 13 22:16:35 2011 (+0100)
+%           By: Fabian Wermelinger
+%     Update #: 30
+% -----------------------------------------------------------------------------
+% descriptionSolver.tex starts here
+% -----------------------------------------------------------------------------
+
+\subsection{Solving Process}
+\label{sec:descriptioSolving}
+
+Once a network has been defined, the relation between the nodes is fully
+determined.  If $\mathcal{N}$ is the set of all nodes contained in the network,
+then each node $i$ has a set of neighbors $\mathcal{S}_i \subset \mathcal{N}$.
+The neighbors $j\in\mathcal{S}_i$ of node $i$ may be \emph{direct} or
+\emph{indirect} neighbors.  A direct neighbor $j$ is one that is linked
+adjacent to node $i$, where an indirect neighbor node is one that is a neighbor
+of a neighbor in a successive fashion.  Each node is characterized by two main
+features, \ie, a state and a threshold.
+\begin{definition}
+  The state of a node is a binary variable.  The value $0$ means that the state
+  for a situation is \emph{pro}, whereas the value $1$ is \emph{contra} the
+  situation.  The state is subject to change.
+\end{definition}
+\begin{definition}
+  The threshold of a node is a numeric value on the interval $[0,1]$.  A
+  threshold of $0$ means that the node will remain in its state no matter what
+  the external influences are.  A threshold of $1$ acts opposite.  That is, a
+  node with a threshold of $1$ will \emph{always} change its state from pro to
+  contra, no matter what the external influences are.  If it already was in
+  contra state, it will remain in that state.  Hence, a node with a threshold
+  of $1$ acts as a ``seed'' node to initiate some event.  The threshold is a
+  constant.
+\end{definition}
+
+With the above definitions, the solving process is as follows:
+\begin{enumerate}
+\item Loop over time
+\item Generate a sequential update list
+\item Loop over the sequential update list
+\item Calculate the neighbor state residual and compare it with the threshold
+  of the actual node
+\item If the condition applies, update the state of the node
+\end{enumerate}
+
+\subsubsection{The Neighbor State Residual}
+\label{sec:nbrStateRes}
+
+The neighbor state residual is a scalar which is a measure of an overall state
+for all neighbor nodes $j\in\mathcal{S}_i$.  It is used to decide whether a
+nodal state is changed by comparing it with the nodal threshold.  If there are
+$n$ elements in $\mathcal{S}_i$, then let $\bm{r}_i\in A^n$ be a vector of
+dimension $n$, where its elements $r_j$ hold the state of each node
+$j\in\mathcal{S}_i$.  The set $A$ holds the two elements $0$ and $1$, which
+represent the state.  The neighbor state residual, $\rho_i$, is then defined to
+be the Euclidean norm of $\bm{r}_i$, \ie,
+\begin{align}
+  \label{eq:nbrStateRes}
+  \rho_i &= \norm{\bm{r}_i}
+\end{align}
+
+So if $\rho_i$ is greater or equal to the threshold of node $i$, then the state
+will be forced to contra, \ie, to the value $1$.  The calculation then proceeds
+for all nodes in the sequential update list before the next time step is
+processed.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:
+
+% -----------------------------------------------------------------------------
+% descriptionSolver.tex ends here
+% -----------------------------------------------------------------------------
+

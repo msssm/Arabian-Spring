@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Dec  1 21:59:51 2011 (+0100)
 % Version: 
-% Last-Updated: Mon Dec 12 19:38:21 2011 (+0100)
+% Last-Updated: Tue Dec 13 23:15:22 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 50
+%     Update #: 52
 % -----------------------------------------------------------------------------
 % solverSIRv3.m starts here
 % -----------------------------------------------------------------------------
@@ -61,11 +61,6 @@ function [res, initStat, finalStat] = solverSIRv3( agent, par )
                                                    % threshold, set its mind
                                                    % state to 1.
                     end
-                else
-                    %agent(aList(j)).state = 0; % if the neighbor residual is
-                                               % less than the agent threshold,
-                                               % set the agents state to 0,
-                                               % regardless what is was before.
                 end
                 if ( rand() < par.gamma(agent(aList(j)).citizen) )
                     % SIR removal
@@ -161,7 +156,10 @@ function getAllStates( root, agents, depth )
     end
     
 function res = calcResidual( agent, par )
-% calculate residual for each cluster as well as global
+% calculate residual for each cluster as well as global (all clusters
+% together).  The residual is a scalar between 0 and 1 which describes the
+% overall behavior of a social network (cluster).  A global network may
+% contain multiple connected (or non-connected) cluster.
     res = cell( 1, length(par.nodes) + 1 );
     for i = 1:length( par.nodes )
         res{i} = zeros( par.nodes(i), 1 );

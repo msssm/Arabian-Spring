@@ -1,0 +1,42 @@
+% ---------------------------------*- Latex -*---------------------------------
+% Filename: implementSolver.tex
+% Description: 
+% Author: Fabian Wermelinger
+% Email: fabianw@student.ethz.ch
+% Created: Tue Dec 13 22:16:47 2011 (+0100)
+% Version: 
+% Last-Updated: Tue Dec 13 23:18:21 2011 (+0100)
+%           By: Fabian Wermelinger
+%     Update #: 9
+% -----------------------------------------------------------------------------
+% implementSolver.tex starts here
+% -----------------------------------------------------------------------------
+
+\subsection{Implementation of the Solver Function}
+\label{sec:implementSolver}
+
+The full code of the solver function can be found in
+Appendix~\ref{sec:solverSIRv3.m}.  This section describes the implementation of
+Section~\ref{sec:descriptioSolving} in \matlab code.  Additionally, the actual
+solver implemented in \matlab also supports a variant of a SIR (Susceptible
+Infected Recovered) model for a cellular automaton.
+
+The solver consists mainly of two nested \textsl{for-loops}, where the outer
+loop is over a time vector and the inner loop is over a sequential list of
+agents, which are to be updated in the active time-step.  In each of these
+loops a call to a subroutine may be executed.  Since the subroutines are solver
+specific functions, they are appended at the bottom of the solver function.
+Therefore, they are only visible to the solver.  The subroutines are
+sufficiently commented in the code and will not be discussed here in more
+detail.  However, in order to aid the understanding of how the solver works in
+general, the statements in the nested loops need further explanation.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:
+
+% -----------------------------------------------------------------------------
+% implementSolver.tex ends here
+% -----------------------------------------------------------------------------
