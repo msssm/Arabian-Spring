@@ -78,7 +78,7 @@ par.stretch = 1;
 % two element vector [tStart tEnd].  the nTime variable defines the number
 % of nodes in the time domain.
 par.time = [0 100]; % [day]
-par.nTime = 3000;
+par.nTime = 1000;
 
 % the beta and gamma variables define the infection rate and the immunity
 % rate, respectively, of the SIR model.  Each cluster has its own value.  If
