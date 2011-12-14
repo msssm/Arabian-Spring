@@ -1,0 +1,7 @@
+#!/bin/bash
+
+lapdf minimal.tex &&
+pdfcrop minimal.pdf &&
+mv minimal-crop.pdf influenceMaxAgentUpdate.pdf &&
+
+exit 0
