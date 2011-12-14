@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Nov 10 21:20:16 2011 (+0100)
 % Version: 
-% Last-Updated: Wed Dec 14 16:16:32 2011 (+0100)
+% Last-Updated: Wed Dec 14 16:17:54 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 174
+%     Update #: 175
 % -----------------------------------------------------------------------------
 % main.m starts here
 % -----------------------------------------------------------------------------
@@ -17,7 +17,7 @@ clear( 'all' );
 % set paths
 % -----------------------------------------------------------------------------
 whereIs.main = pwd;
-cd( '..' );
+cd( '../..' );
 whereIs.src = pwd;
 whereIs.func = [whereIs.src filesep 'func'];
 addpath( whereIs.func );
@@ -44,7 +44,7 @@ par.noisyAgent = 0.0;
 % this parameter defines the considered depth of neighbor agents of a root
 % agent.  E.g., 1 means consider only the immediate neighbors of root, 2
 % means consider also the neighbors of neighbors and so on.
-par.nbrDepth = 1;
+par.nbrDepth = 2;
 
 % used for network generation.  khalf is the mean degree half and alpha is
 % the rewiring probability.
