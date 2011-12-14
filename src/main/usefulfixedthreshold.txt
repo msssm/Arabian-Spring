@@ -1,0 +1,9 @@
+for the graphes i suggest to take maxupdate 0.08, noise 0 dephth2 and than all the fixed thresholds + the one without.
+
+Maybe as R network
+
+(222)(0.8)(0)(2)
+(222)(0.8)(0)(2)0.2
+(222)(0.8)(0)(2)0.4
+(222)(0.8)(0)(2)0.6
+
