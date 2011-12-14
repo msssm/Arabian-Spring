@@ -49,7 +49,7 @@ par.nbrDepth = 1;
 % used for network generation.  khalf is the mean degree half and alpha is
 % the rewiring probability.
 par.kHalf = [2 2 2];
-par.alpha = [1 1 0.2];
+par.alpha = [1 1 1];
 
 % number nodes between the different networks 
 par.between = [2 4 2];
@@ -63,7 +63,7 @@ par.thresholdoffset = 0.01;
 % fix threshold for part of the network
 % the first parameter is the partion in procentige that gets a fixed
 % threshold. The second is the threshold these agents get.
-par.fixedthreshold = [0 , 0.4]; 
+par.fixedthreshold = [0 , 0]; 
 
 % this parameter determines in which country and how many rebles are placed
 % in the network.
@@ -77,7 +77,7 @@ par.stretch = 1;
 % two element vector [tStart tEnd].  the nTime variable defines the number
 % of nodes in the time domain.
 par.time = [0 100]; % [day]
-par.nTime = 3000;
+par.nTime = 1000;
 
 % the beta and gamma variables define the infection rate and the immunity
 % rate, respectively, of the SIR model.  Each cluster has its own value.  If
