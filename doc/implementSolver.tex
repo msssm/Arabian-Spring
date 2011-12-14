@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Tue Dec 13 22:16:47 2011 (+0100)
 % Version: 
-% Last-Updated: Tue Dec 13 23:18:21 2011 (+0100)
+% Last-Updated: Wed Dec 14 10:03:15 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 9
+%     Update #: 20
 % -----------------------------------------------------------------------------
 % implementSolver.tex starts here
 % -----------------------------------------------------------------------------
@@ -21,7 +21,7 @@ Section~\ref{sec:descriptioSolving} in \matlab code.  Additionally, the actual
 solver implemented in \matlab also supports a variant of a SIR (Susceptible
 Infected Recovered) model for a cellular automaton.
 
-The solver consists mainly of two nested \textsl{for-loops}, where the outer
+The solver consists mainly of two nested \textsl{for}-loops, where the outer
 loop is over a time vector and the inner loop is over a sequential list of
 agents, which are to be updated in the active time-step.  In each of these
 loops a call to a subroutine may be executed.  Since the subroutines are solver
@@ -31,6 +31,69 @@ sufficiently commented in the code and will not be discussed here in more
 detail.  However, in order to aid the understanding of how the solver works in
 general, the statements in the nested loops need further explanation.
 
+The main algorithm starts at line~33 and ends on line~75 in the source code
+found in Appendix~\ref{sec:solverSIRv3.m}.  The very first thing that is done
+in every time-step is the calculation of the individual cluster residuals, as
+well as the global residual for the whole network.  If the whole network
+consists of only one cluster, the two residuals are the same.  The calculated
+residuals provide a measure of the development of the social behavior over
+time.  If it is close to zero, the majority of people are content with the
+current situation.  If it is close to one, the opposite is true.  On line~39
+the sequential agent update list is calculated.  It is a uniformly distributed
+list of random agent indices that get update in the current time-step.  The
+list is of random length (also uniformly distributed) but at most
+\texttt{maxUpdatedAgents} long.  The constant \texttt{maxUpdatedAgents} is
+calculated on line~26 and is some percentage, defined in the parameter
+structure, of $\mathcal{N}$, thus, if the set $\mathcal{U}$ contains the agents
+that get an update in the current time-step, then
+$\mathcal{U}\subseteq\mathcal{N}$.
+
+On line~40, a number of noisy agents is calculated in the same way as it is
+descried above for the \texttt{maxUpdatedAgents} constant.  The only difference
+is that \texttt{nNoize} is a percentage of the set $\mathcal{U}$.  The
+\textsl{if}-block from line~42--51 then adds the noize and removes the noisy
+agents from the sequential update list.  The update algorithm starts with the
+\textsl{for}-loop on line~53.  The algorithm first checks whether the agent is
+subject to update.  That is, if its state is zero and $\rho_i$ is strong
+engough to pass the agents threshold, then the infection phase of the SIR
+implementation takes effect.  If $\beta = 1$, the infection is not applied at
+all.  If all of these tests are true, then the agent's state is updated to
+contra (\ie, ``$1$'') on line~59.  Note that $\rho_i$ is computed with a
+recursive function in order to allow an arbitrary depth of indirect neighbors.
+If \texttt{nbrDepth} is set to unity in the parameter list, then only direct
+neighbors are taken into account.
+
+The \textsl{if}-block from line~66 to~69 applies the removal phase of the SIR
+implementation.  Note that if $\gamma = 0$, the expression is never true and
+the removal phase is ignored.  Therfore, if one sets the parameter $\beta = 1$
+and $\gamma = 0$, then the SIR model is turned off.  The last \textsl{if}-block
+is a write operation, which generates a \texttt{.csv} file.  The file is simply
+the list of agents with contra state at the current time-step.  We have used
+this file to generate visualizations of time dependent developments in the
+network.  We have used R\footnote{R is a collection of software packages for
+  statistical computing and graphic generation.  See
+  \url{http://www.r-project.org/} for more information.} to generate the
+network plots.
+
+\subsubsection{Limitations}
+\label{sec:solverLimitations}
+
+The current implementation of the solver function is limited by means that it
+only allows state updates in one direction.  That is, an agent's state can only
+be changed from pro to contra.  For further development, one may consider to
+allow the reverse as well.  However, this implies that if the initial agents
+all have a pro state and at least one agent acts as a seed, then noize must be
+added in order to allow an agent to change its state in the reverse direction.
+
+The current implementation also assumes that each agent knows all of its direct
+and indirect neighbors.  Such an assumption is conservative, as it might be
+very well true that an agent only knows some of its neighbors, this is
+especially true for the indirect neighbors.  Hence, an additional parameter
+could be introduced that defines such behavior.  This would have immediate
+effect on $\rho_i$ and eventually influences the decision making of the agent.
+Also, note that if the number of indirect neighbors is increased (by increasing
+the \texttt{nbrDepth} parameter), the computation time of the solver is also
+increased (depending on the network, it may increase drastically).
 
 %%% Local Variables: 
 %%% mode: latex
@@ -40,3 +103,4 @@ general, the statements in the nested loops need further explanation.
 % -----------------------------------------------------------------------------
 % implementSolver.tex ends here
 % -----------------------------------------------------------------------------
+
