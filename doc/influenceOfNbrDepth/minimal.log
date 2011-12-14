@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2010.9.12)  14 DEC 2011 15:02
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2010.9.12)  14 DEC 2011 15:32
 entering extended mode
  %&-line parsing enabled.
 **minimal.tex
@@ -71,37 +71,37 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
- (./maxUpdate1.tex
-File: /home/fabs/Desktop/arabSpring/doc/influenceOfmaxUpdate/maxUpdate1.eps Gra
-phic file (type eps)
+ (./nbrDepth1.tex
+File: /home/fabs/Desktop/arabSpring/doc/influenceOfNbrDepth/nbrDepth1.eps Graph
+ic file (type eps)
 \openout3 = `minimal.pfg'.
 
 
-<psfrag:/home/fabs/Desktop/arabSpring/doc/influenceOfmaxUpdate/maxUpdate1.eps>
+<psfrag:/home/fabs/Desktop/arabSpring/doc/influenceOfNbrDepth/nbrDepth1.eps>
 (./minimal.pfg)
-</home/fabs/Desktop/arabSpring/doc/influenceOfmaxUpdate/maxUpdate1.eps>
+</home/fabs/Desktop/arabSpring/doc/influenceOfNbrDepth/nbrDepth1.eps>
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 50.
+(Font)              <7> on input line 49.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 50.
+(Font)              <5> on input line 49.
 )
-(./maxUpdate2.tex
-File: /home/fabs/Desktop/arabSpring/doc/influenceOfmaxUpdate/maxUpdate2.eps Gra
-phic file (type eps)
+(./nbrDepth2.tex
+File: /home/fabs/Desktop/arabSpring/doc/influenceOfNbrDepth/nbrDepth2.eps Graph
+ic file (type eps)
 \openout3 = `minimal.pfg'.
 
 
-<psfrag:/home/fabs/Desktop/arabSpring/doc/influenceOfmaxUpdate/maxUpdate2.eps>
+<psfrag:/home/fabs/Desktop/arabSpring/doc/influenceOfNbrDepth/nbrDepth2.eps>
 (./minimal.pfg)
-</home/fabs/Desktop/arabSpring/doc/influenceOfmaxUpdate/maxUpdate2.eps>)
-[1] (./minimal.aux) ) 
+</home/fabs/Desktop/arabSpring/doc/influenceOfNbrDepth/nbrDepth2.eps>) [1]
+(./minimal.aux) ) 
 Here is how much of TeX's memory you used:
- 669 strings out of 493849
- 9545 string characters out of 3149251
- 63135 words of memory out of 3000000
- 3993 multiletter control sequences out of 15000+200000
+ 666 strings out of 493849
+ 9497 string characters out of 3149251
+ 62135 words of memory out of 3000000
+ 3990 multiletter control sequences out of 15000+200000
  3640 words of font info for 14 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 30i,10n,30p,318b,306s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 30i,10n,30p,315b,303s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on minimal.dvi (1 page, 7572 bytes).
+Output written on minimal.dvi (1 page, 7356 bytes).

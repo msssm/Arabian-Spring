@@ -7,6 +7,6 @@
      "psfrag"
      "latex2e"
      "minimal10"
-     "maxUpdate1"
-     "maxUpdate2")))
+     "nbrDepth1"
+     "nbrDepth2")))
 

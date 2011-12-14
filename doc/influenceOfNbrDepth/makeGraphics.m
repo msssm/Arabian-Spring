@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Wed Dec 14 14:18:12 2011 (+0100)
 % Version: 
-% Last-Updated: Wed Dec 14 15:15:44 2011 (+0100)
+% Last-Updated: Wed Dec 14 15:32:15 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 15
+%     Update #: 24
 % -----------------------------------------------------------------------------
 % makeGraphics.m starts here
 % -----------------------------------------------------------------------------
@@ -28,7 +28,7 @@ hold( ax(1), 'on' );
 hold( ax(2), 'on' );
 
 lineStyle = { '-k' '--k' '-.k' };
-legendStr = { '' '$4\;\%$' '$8\;\%$' };
+legendStr = { 'nbrDepth = 1' 'nbrDepth = 2' '$8\;\%$' };
 
 % -----------------------------------------------------------------------------
 % fig1
@@ -37,7 +37,7 @@ for i = 1:length( resData )
 end
 xlabel( ax(1), 'Number of Iterations' )
 ylabel( ax(1), 'Residual' )
-legend( h, legendStr, 'location', 'se' );
+legend( h, legendStr, 'location', 'se', 'FontSize', 14 );
 title( ax(1), 'Cluster 1' );
 set( ax(1), 'YLim', [0 1] );
 grid( ax(1), 'on' );
@@ -49,7 +49,7 @@ for i = 1:length( resData )
 end
 xlabel( ax(2), 'Number of Iterations' )
 ylabel( ax(2), 'Residual' )
-legend( h, legendStr, 'location', 'se' );
+legend( h, legendStr, 'location', 'se', 'FontSize', 14 );
 title( ax(2), 'Global' );
 set( ax(2), 'YLim', [0 1] );
 grid( ax(2), 'on' );
@@ -57,7 +57,8 @@ grid( ax(2), 'on' );
 % -----------------------------------------------------------------------------
 % print
 for i = 1:length( fig )
-    laprint( fig(i), ['maxUpdate' num2str(i)], 'textwidth', 0.46 );
+    legend( ax(i), 'boxoff' )
+    laprint( fig(i), ['nbrDepth' num2str(i)], 'textwidth', 0.46 );
 end
 
 close( 'all' );
