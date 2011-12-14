@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Wed Dec 14 14:18:12 2011 (+0100)
 % Version: 
-% Last-Updated: Wed Dec 14 14:45:25 2011 (+0100)
+% Last-Updated: Wed Dec 14 15:00:47 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 11
+%     Update #: 14
 % -----------------------------------------------------------------------------
 % makeGraphics.m starts here
 % -----------------------------------------------------------------------------
@@ -60,8 +60,10 @@ grid( ax(2), 'on' );
 % -----------------------------------------------------------------------------
 % print
 for i = 1:length( fig )
-    laprint( fig(i), ['maxUpdate' num2str(i)], 'textwidth', 0.45 );
+    laprint( fig(i), ['maxUpdate' num2str(i)], 'textwidth', 0.46 );
 end
+
+close( 'all' );
 
 % -----------------------------------------------------------------------------
 % makeGraphics.m ends here
