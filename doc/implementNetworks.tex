@@ -1,3 +1,13 @@
 \subsection{Implementation of the networks}
-\label{subsec:implementationofnetworks}
+\label{sec:implementationofnetworks}
 
+The full code of the network generating functions can be found in
+Appendix~\ref{sec:smallworld.m} and Appendix~\ref{sec:randomnetwork}. This section describes shortly the implementation of Section~\ref{sec:descriptionofnetwork} in \matlab code. \\
+
+We used two different implementations for the small world network and the random graph althoug the random graph is just a limiting case in the Watts and Strogatz Model. The Small world model has three input parameters: the total number of nodes, the mean degree and the rewiring probability. The output of the implementation is a sparse symmetric adjacency matrix representing the network graph. We used the format sparse to save memory. The implementation first constructs an regular lattice, where each node has in total the given mean degree. In a second step in two nested for loops we iterate over all nodes exploiting the symmetry and rewire the loops with the specified rewiring propability. As mentioned the output needs to be symmetric which is after the rewiring not the case but now we can make use of the symmetry in order to get the full symmetric adjacency matrix.\\
+
+The random graph is an implementation of the $Erd\acute{o}s$ and $R\acute{e}yi$ model. The input are the total number of nodes and the probability that two nodes are connected and the output is again a sparse symmetric adjacency matrix representing the generated network graph. In the implementation is first the number of non-zero values in every row for a adjacency matrix just containing 0 and 1 generated. In a second step this number is for every row distributed with a binomially distribution with two specified parameters - the total number of nodes and the probability that two nodes are connected. At the end is again made use of the symmetry of the network adjacency matrix. \\
+
+In both implementations we have a big for loop over the network in order to construct the three sub-networks that have some links inbetween.\\
+
+The plots of the networks were done using the igraph library in R. The layout used the in this package implemented Fruchterman and Reingold algorithm, which is a force-based algorithm.
