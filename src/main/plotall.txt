@@ -1,6 +1,6 @@
 
 
-SW <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/randomNbrDepth2/SW.csv', header=F)
+SW <- read.csv('/Users/tilemanconring/Documents/Arabian/doc/batchRun__kHalf=2-2-2_maxUpdate=0.08_noize=0_nbrDepth=2_fixedthreshold=0.6/SW.csv', header=F)
 
 g <- graph.adjacency(SW, mode="undirected", add.colnames=NA)
 l <- layout.fruchterman.reingold(g)
@@ -20,7 +20,7 @@ CairoPDF(file="network250.pdf", pointsize=12)
 
 plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
 
-c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/randomNbrDepth2/riotAgents250.csv', header=F)
+c <- read.csv('/Users/tilemanconring/Documents/Arabian/doc/batchRun__kHalf=2-2-2_maxUpdate=0.08_noize=0_nbrDepth=2_fixedthreshold=0.6/riotAgents250.csv', header=F)
 
 c<-as.matrix(c)
 
@@ -35,7 +35,7 @@ CairoPDF(file="network500.pdf", pointsize=12)
 
 plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
 
-c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/randomNbrDepth2/riotAgents500.csv', header=F)
+c <- read.csv('/Users/tilemanconring/Documents/Arabian/doc/batchRun__kHalf=2-2-2_maxUpdate=0.08_noize=0_nbrDepth=2_fixedthreshold=0.6/riotAgents500.csv', header=F)
 
 c<-as.matrix(c)
 
@@ -50,7 +50,7 @@ CairoPDF(file="network750.pdf", pointsize=12)
 
 plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
 
-c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/randomNbrDepth2/riotAgents750.csv', header=F)
+c <- read.csv('/Users/tilemanconring/Documents/Arabian/doc/batchRun__kHalf=2-2-2_maxUpdate=0.08_noize=0_nbrDepth=2_fixedthreshold=0.6/riotAgents750.csv', header=F)
 
 c<-as.matrix(c)
 
@@ -65,7 +65,7 @@ CairoPDF(file="network1000.pdf", pointsize=12)
 
 plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
 
-c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/randomNbrDepth2/riotAgents1000.csv', header=F)
+c <- read.csv('/Users/tilemanconring/Documents/Arabian/doc/batchRun__kHalf=2-2-2_maxUpdate=0.08_noize=0_nbrDepth=2_fixedthreshold=0.6/riotAgents1000.csv', header=F)
 
 c<-as.matrix(c)
 
@@ -76,124 +76,3 @@ plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vert
 
 dev.off()
 
-
-CairoPDF(file="network1250.pdf", pointsize=12)
-
-plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
-
-c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/riotAgents1250.csv', header=F)
-
-c<-as.matrix(c)
-
-g2 <- subgraph(g, c-1)
-l2 <- l[ c-1, ]
-
-plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
-
-dev.off()
-
-CairoPDF(file="network1500.pdf", pointsize=12)
-
-plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
-
-c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/riotAgents1500.csv', header=F)
-
-c<-as.matrix(c)
-
-g2 <- subgraph(g, c-1)
-l2 <- l[ c-1, ]
-
-plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
-
-dev.off()
-
-CairoPDF(file="network1750.pdf", pointsize=12)
-
-plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
-
-c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/riotAgents1750.csv', header=F)
-
-c<-as.matrix(c)
-
-g2 <- subgraph(g, c-1)
-l2 <- l[ c-1, ]
-
-plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
-
-dev.off()
-
-CairoPDF(file="network2000.pdf", pointsize=12)
-
-plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
-
-c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/riotAgents2000.csv', header=F)
-
-c<-as.matrix(c)
-
-g2 <- subgraph(g, c-1)
-l2 <- l[ c-1, ]
-
-plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
-
-dev.off()
-
-
-CairoPDF(file="network2250.pdf", pointsize=12)
-
-plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
-
-c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/riotAgents2250.csv', header=F)
-
-c<-as.matrix(c)
-
-g2 <- subgraph(g, c-1)
-l2 <- l[ c-1, ]
-
-plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
-
-dev.off()
-
-CairoPDF(file="network2500.pdf", pointsize=12)
-
-plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
-
-c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/riotAgents2500.csv', header=F)
-
-c<-as.matrix(c)
-
-g2 <- subgraph(g, c-1)
-l2 <- l[ c-1, ]
-
-plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
-
-dev.off()
-
-CairoPDF(file="network2750.pdf", pointsize=12)
-
-plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
-
-c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/riotAgents2750.csv', header=F)
-
-c<-as.matrix(c)
-
-g2 <- subgraph(g, c-1)
-l2 <- l[ c-1, ]
-
-plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
-
-dev.off()
-
-CairoPDF(file="network3000.pdf", pointsize=12)
-
-plot(g, layout=l, vertex.size=1, vertex.label=NA, vertex.color="#ff000033", vertex.frame.color="#ff000033", edge.color="#55555533", edge.arrow.size=0.1, rescale=FALSE, xlim=range(l[,1]), ylim=range(l[,2]),)
-
-c <- read.csv('/Users/tilemanconring/Documents/Arabian/src/main/riotAgents3000.csv', header=F)
-
-c<-as.matrix(c)
-
-g2 <- subgraph(g, c-1)
-l2 <- l[ c-1, ]
-
-plot(g2, layout=l2, vertex.size=1, vertex.label=NA, vertex.color="#ff0000", vertex.frame.color="#ff0000", edge.color="#555555",  vertex.label.dist=0.5, vertex.label.cex=0.8, vertex.label.font=2, edge.arrow.size=0.1, add=TRUE, rescale=FALSE)
-
-dev.off()
