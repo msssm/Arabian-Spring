@@ -1,6 +1,6 @@
 \subsection{Description of the Networks}
 \label{sec:descriptionofnetwork}
-As mentioned in section \ref{sec:introAndMotivation} we want to simulate the spread of opinions on a small world network. To have a comparison we also simulated the change of opinions on a random graph. Small world networks and random graphs also have a close connection as figure \ref{influencerewiringprob} shows. In this figure we visualized the Watts and Strogatz model for different rewiring probabilities. If the rewiring probability variies from 0 to 1 a regular graph passes over into a small world network and then into an random graph. In the following we are going to describe the properties of the two network types used in our model. For more details see \cite{Newman2010}.
+As mentioned in section \ref{sec:introAndMotivation} we want to simulate the spread of opinions on a small world network. To have a comparison we also simulated the change of opinions on a random graph. Small world networks and random graphs also have a close connection as figure \ref{influencerewiringprob} shows. In this figure we visualized the Watts and Strogatz model for different rewiring probabilities. If the rewiring probability varied from 0 to 1 a regular graph passes over into a small world network and then into an random graph. In the following we are going to describe the properties of the two network types used in our model. For more details see \cite{Newman2010}.
 
 \begin{figure}[!t]
 \centering
@@ -9,7 +9,9 @@ As mentioned in section \ref{sec:introAndMotivation} we want to simulate the spr
 \includegraphics[width= .2 \textwidth]{Influencealphaonnetwork/networkbeta06-crop}
 \includegraphics[width= .2 \textwidth]{Influencealphaonnetwork/networkbeta10-crop}
 \includegraphics[width= .8 \textwidth]{Influencealphaonnetwork/arrow}
-\caption{The influence of the rewiring probability varriing between 0 and 1 on a network with 20 nodes and k = 4 (graphs are generated with the use of the smallworld.m function in the appendix)}
+\caption{The influence of the rewiring probability varying between 0 and 1 on a
+  network with 20 nodes and k = 4 (graphs are generated with the use of the
+  smallworld.m function, found in Appendix~\ref{sec:smallworld.m})}
 \label{influencerewiringprob}
 \end{figure}
 
@@ -25,10 +27,22 @@ In our model we use the model proposed by Watts and Strogatz. This implements th
 \item small average path length
 \item high clustering coefficient
 \end{enumerate}
-The Watts Strogatz algorithm follows a simple rule. As in figure \ref{influencerewiringprob} the plot on the left shows first there is a regular ring lattice constructed, where every node has exactly for a chosen integer k k neighbours. In a second step every node is taken an rewired with a chosen probability. It is done in a way avoiding loops and duplication \ie connecting a node to itself.\\
-A lot of real world examples follow small world type networks. The most famous experiment showing this was done by S. Milgram showing that the average distance between two random persons in the world is five. Other examples that follow the two most important proberties of small world networks are the world wide web, social networks and for example also gene networks. \\
+The Watts Strogatz algorithm follows a simple rule. As in figure \ref{influencerewiringprob} the plot on the left shows first there is a regular ring lattice constructed, where every node has exactly for a chosen integer k, k neighbours. In a second step every node is taken an rewired with a chosen probability. It is done in a way avoiding loops and duplication \ie connecting a node to itself.\\
+A lot of real world examples follow small world type networks. The most famous experiment showing this was done by S. Milgram showing that the average distance between two random persons in the world is five. Other examples that follow the two most important properties of small world networks are the world wide web, social networks and for example also gene networks. \\
 One of the main criticism about small world networks is that they produce unrealistic degree distributions. Many real networks follow the preferential attachement models for example proposed by Barabasi, which give us scale free networks. This means that the produced networks have hubs with a lot of links but also many nodes with just a few links to other nodes. But scale free networks fail to have a high clustering coefficient which also a lot of real world networks have. So neither of the models is perfect.
 
 \subsubsection{Random Graph}
 \label{sec:randomgraph}
-As the name already says random graphs are generated with some random processes. One of the most important differences of a random graph compared to a small world network is the lack of local clustering. Also the degree distribution is binomial. We used an implementation after a model proposed by $Erd\acute{o}s$ and $R\acute{e}yi$. It could be understood as the limiting case of the Watts Strogatz Algortihm described in section \ref{sec:smallworld} for a rewiring probability of 1. An example is the graph on the right in figure \ref{influencerewiringprob}.
+As the name already says random graphs are generated with some random
+processes. One of the most important differences of a random graph compared to
+a small world network is the lack of local clustering. Also the degree
+distribution is binomial. We used an implementation after a model proposed by
+$Erd\acute{o}s$ and $R\acute{e}yi$. It could be understood as the limiting case
+of the Watts Strogatz Algortihm described in section \ref{sec:smallworld} for a
+rewiring probability of 1. An example is the graph on the right in figure
+\ref{influencerewiringprob}.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End: 

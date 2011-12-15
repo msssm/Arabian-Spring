@@ -27,7 +27,12 @@ quicker results.
 \label{sec:influencenoize}
 As figure \ref{influencenoize} shows, the noize could have quite an influence on the results of the simulation. In our network we have in total 1200 nodes. All the simulations in figure \ref{influencenoize} have the same \texttt{maxUpdate}=0.02. This means that in every time step 24 agents get updated. If the noize is now for example 0.01 only 0.24 agents choose randomly their state. In the case of a noize of 0.1 get 2.4 agents every time step a randomly after a uniform distribution chosen mind state. After this "noize update" the concerned agents are removed from the sequential update list so that they could not be updated twice.\\
 As figure \ref{influencenoize} now shows and explained above a noize of 0.01 does not really change the results of the simulation as it has nearly no influence. But as the series of five plots on the right in figure \ref{influencenoize} shows a noize of 10 $\%$ does have quite a big influence on the results of the simulation. Before this big noize the riots where not really starting in the networks now they spread quickly.\\
-Compared to reality we think that the noize tends to be close to 0. Who is just completly random changing his mind? It could be that some people change their mind independently from their neighbors and these should be covered by the noize. We think that a noize in reality should be something between 0 and 0.06.
+Compared to reality we think that the noize tends to be close to 0. Who is just
+completly random changing his mind? It could be that some people change their
+mind independently from their neighbors and these should be covered by the
+noize. We think that a noize in reality should be something between 0 and
+0.06.  Refer to Section~\ref{sec:Kuran} for deeper thoughts on this topic, as
+well as private and public mind states.
 
 \begin{figure}
 \centering
@@ -62,7 +67,10 @@ Compared to reality we think that the noize tends to be close to 0. Who is just 
 \hfill
 \includegraphics[width=0.25\textwidth]{batchRun__kHalf=2-2-2_maxUpdate=0.02_noize=0.1_nbrDepth=1/network1000-crop.pdf}
 
-\caption{The influence of the noize for the three cases with on the left noize = 0, in the middle 0.01 and on the right 0.1. From top to bottom are the different time steps with the beginning and then increasing in 250 time steps till a 100 time steps.}
+\caption{The influence of the noize for the three cases with on the left noize
+  = 0, in the middle 0.01 and on the right 0.1. From top to bottom are the
+  different time steps with the beginning and then increasing in 250 time steps
+  till a 1000 time steps.}
 \label{influencenoize}
 \end{figure}
 
@@ -74,11 +82,19 @@ Compared to reality we think that the noize tends to be close to 0. Who is just 
 \begin{figure}
 \centering
 \includegraphics[width= \textwidth]{influenceOfNbrDepth/influenceNbrDepth.pdf}
-\caption{The residuals for neighbor depth 1 (on the left) and 2 (on the right) compared for a small world network and a randrom graph. The other parameters for the small world network are as in \ref{influencenbrdepth} and for the random graph as in \ref{influenceNBRdepthRANDOM}.}
+\caption{The residuals for neighbor depth 1 (on the left) and 2 (on the right)
+  compared for a small world network and a randrom graph. The other parameters
+  for the small world network are as in \ref{influencenbrdepth} and for the
+  random graph as in \ref{influenceNBRdepthRANDOM}.}
 \label{residualNBRdepth}
 \end{figure}
 
-As figure \ref{influencenbrdepth} shows has an iteration over neighbor depth 2 a faster dynamic compared to a neighbor depth of 1. Through a neighbor depth of 2 there is also a quicker jump over from one cluster to the next cluster. This could be explained simply because there is a high probability that with one node in between there is a link between two clusters. The to this plot belonging residuals are shown in figure \ref{residualNBRdepth}.
+As figure \ref{influencenbrdepth} shows has an iteration over neighbor depth 2
+a faster dynamic compared to a neighbor depth of 1. Through a neighbor depth of
+2 there is also a quicker jump over from one cluster to the next cluster. This
+could be explained simply because there is a high probability that with one
+node in between there is a link between two clusters. The residuals belonging
+to figure~\ref{influencenbrdepth} are shown in figure~\ref{residualNBRdepth}.
 
 \begin{figure}
 \centering
@@ -109,9 +125,19 @@ As figure \ref{influencenbrdepth} shows has an iteration over neighbor depth 2 a
 \subsubsection{Influence of the threshold distribution}
 \label{sec:influencethresholddistribution}
 
-The figures \ref{influencethresholdplot} and \ref{influencethresholdnetwork} show, that the revolution can only cascades without hindrance if the thresholds are distributed stair like as described in \ref{sec:Kuran}. The uniformly distributed threshold we use, equals a stair like distribution with infinitely small steps. In the extreme case in with we set a threshold of 0.2, for 50\% of the agents, the growth of the opposition stops very soon at a low level. the more moderate case of a threshold of 0.4 for half of the agents, the growth of the oppsition isn't prevented, but clearly hindered and slowed down.
+The figures \ref{influencethresholdplot} and \ref{influencethresholdnetwork}
+show, that the revolution can only cascades without hindrance if the thresholds
+are distributed stair like as described in \ref{sec:Kuran}. The uniformly
+distributed threshold we use, equals a stair like distribution with infinitely
+small steps. In the extreme case in with we set a threshold of 0.2, for 50\% of
+the agents, the growth of the opposition stops very soon at a low level. The
+more moderate case of a threshold of 0.4 for half of the agents, the growth of
+the oppsition is not prevented, but clearly hindered and slowed down.
 
-On the other hand a threshold distribution that is a favourable for the opposition, like in the example with a threshold of 0.6, the growth of the opposition gets accelerated and the opposition reaches greater percentage of the network.  
+On the other hand a threshold distribution that is a favourable for the
+opposition, like in the example with a threshold of 0.6, the growth of the
+opposition gets accelerated and the opposition reaches greater percentage of
+the network.
 
 
 \begin{figure}
@@ -157,13 +183,24 @@ On the other hand a threshold distribution that is a favourable for the oppositi
 \hfill
 \includegraphics[width=0.25\textwidth]{batchRun__kHalf=2-2-2_maxUpdate=0.08_noize=0_nbrDepth=2_fixedthreshold=0.2/network1000-crop.pdf}
 
-\caption{For this graphs we used a small world network with mean degree 12, a maximal update of 0.08, 0 noize and a neighbour depth of 2. The left graphs are for comparison, while the middle and right graphs are generated with a not uniformly distributed threshold. In the the middle graphs half of the agents have a threshold of 0.4 and in the right graphs one of 0.2. The other half of the agents stays uniformly distributed.}
+\caption{For this graphs we used a small world network with mean degree 12, a
+  maximum update of 0.08, 0 noize and a neighbour depth of 2. The left graphs
+  are for comparison, while the middle and right graphs are generated with a
+  not uniformly distributed threshold. In the the middle graphs half of the
+  agents have a threshold of 0.4 and in the right graphs one of 0.2. The other
+  half of the agents stays uniformly distributed.}
 \label{influencethresholdnetwork}
 \end{figure}
 
 \subsubsection{Influence of the network type}
 \label{sec:influencenetworktype}
-As the figure \ref{influenceNBRdepthRANDOM} and the two plots in figure \ref{residualNBRdepth} show has the network type an influence on the outcom of the simulation. As we use quite well connected networks the influence is not big but still significant. The plots show that the spread on a random network could sometimes be faster but in general is slower an reaches a lower final residual. The cause for this could be that there exist not so well connected parts of the network into which it is harder for the riots to spread.
+As the figure \ref{influenceNBRdepthRANDOM} and the two plots in figure
+\ref{residualNBRdepth} show has the network type an influence on the outcome of
+the simulation. As we use quite well connected networks the influence is not
+big but still significant. The plots show that the spread on a random network
+could sometimes be faster but in general is slower and reaches a lower final
+residual. The cause for this could be that there exist not so well connected
+parts of the network into which it is harder for the riots to spread.
 
 \begin{figure}
 \centering
@@ -202,14 +239,15 @@ The author tested the effects of network structures on behavioral diffusion.
 The study involved randomly assigned participants to join a health community in
 the internet.  The behavior of the agents was based on the decision of whether
 to join an online health forum or not, based on the action of their
-``health-buddies''.  The similarity to the implemented model in
-Section~\ref{sec:implementationMatlab} and experiment is that they share the
-same mechanism of decision making and both offer only two choices to make.  The
-experiment was conducted on two different network structures, \ie, a small
-world network according to~\cite{watts98} and a randomly rewired network.  The
-difference, however, is that the implemented model does not have a meaningful
-time scale, since no parameter were defined based on real data.  Although, the
-characteristics of the decision making over time remains similar.
+``health-buddies'', which are their neighbors.  The similarity to the
+implemented model in Section~\ref{sec:implementationMatlab} and the experiment
+is that they share the same mechanism of decision making and both offer only
+two choices to make.  The experiment was conducted on two different network
+structures, \ie, a small world network according to~\cite{watts98} and a
+randomly rewired network.  The difference, however, is that the implemented
+model does not have a meaningful time scale, since no parameter were defined
+based on real data.  Although, the characteristics of the decision making over
+time remains similar.
 
 By comparing Figure~\ref{residualNBRdepth} and Figure~2
 in~\cite{centola2010spread}, one can see that with a lower number of neighbors
@@ -218,18 +256,19 @@ intersection of the two residuals may be possible.  The simulated data for the
 plot in Figure~\ref{residualNBRdepth} was conducted with the parameter
 \texttt{kHalf} set to six.  This means that each node has~12 neighbors on the
 average (for a neighbor depth of one).  There were only six neighbors for the
-experiment.  The left plot in Figure~\ref{residualNBRdepth} shows the residuals
-for a neighbor depth of one.  These residuals also intersect each other for a
-fewer number of neighbors.  Where eventually, the behavior diffuses faster in
-the small world networks for the experiment.  The simulation indicates almost
-equal residuals for both types of networks at the end of iteration.  This might
-be due to too few iterations or other unknown uncertainties.  On the other
-hand, if each agent has~12 direct neighbor agents, then there will be a total
-of around~144 direct and indirect neighbors for a neighbor depth two.  The
-right plot in Figure~\ref{residualNBRdepth} is for a neighbor depth two.
-Compared to Figure~2E and~F in~\cite{centola2010spread}, both show steeper
-gradients during the first few time steps.  The small world network then
-diffuses information faster than the random network for all later times.
+experiment, however.  The left plot in Figure~\ref{residualNBRdepth} shows the
+residuals for a neighbor depth of one.  These residuals also intersect each
+other for a fewer number of neighbors.  Where eventually, the behavior diffuses
+faster in the small world networks for the experiment.  The simulation
+indicates almost equal residuals for the small world and random types of
+networks at the end of iteration (left plot).  This might be due to too few
+iterations or other unknown uncertainties.  On the other hand, if each agent
+has~12 direct neighbor agents, then there will be a total of around~144 direct
+and indirect neighbors for a neighbor depth two.  The right plot in
+Figure~\ref{residualNBRdepth} is for a neighbor depth two.  Compared to
+Figure~2E and~F in~\cite{centola2010spread}, both show steeper gradients during
+the first few time steps.  The small world network then diffuses information
+faster than the random network for all later time steps.
 
 There are indeed similarities between the simulated data and the experiment
 conducted on a similar model in~\cite{centola2010spread}.  However, the

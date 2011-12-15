@@ -4,9 +4,23 @@
 \subsection{Implementation of the Agents function}
 \label{sec:ImplementAgents }
 
-The complete \matlab code can be found in Appendix ~\ref{sec:agents.m}. The agents function fulfils two purposes. The first is to set end determine the properties every single node(agent) in the network has. As second it acts as interface between the generation of the network and the solver. 
+The complete \matlab code can be found in Appendix ~\ref{sec:agents.m}. The
+agents function fulfils two purposes. The first is to set and determine the
+properties every single node (agent) in the network has. As second it acts as
+interface between the generation of the network and the solver.
 
-The function consists of a for loop that iterates through all nodes of the network and generates a list containing all the agents, with there properties. These properties are the state, the threshold, a list of all the neighbours and which country or cluster the agent is part of. The state tells whether the agent already joint the revolution(1) or not(0), therefore all agents initially get the value 0. The neighbour property is a list of all the agents the particular agent has a connection to in the network. 
+The function consists of a for loop that iterates through all nodes of the
+network and generates a list containing all the agents, with there
+properties. These properties are the state, the threshold, a list of all the
+neighbours and which country or cluster the agent is part of. The state tells
+whether the agent already joined the revolution (1) or not (0), therefore all
+agents initially get the value 0. The neighbour property is a list of all the
+agents the particular agent has a connection to in the network.
 
-The threshold is the percentage of surrounding agents that sill have to have state 0, so the agent doesn't join the opposition. It gets determined by a  uniformly distributed random number between 0 and 1. Dependent on the given parameters a certain percentage can get a fixed threshold. Furthermore a few agents get a threshold of 1. Those are the agent, that start the revolution. How many of these rebels are placed in the network and how fare they are apart depends on the input parameters. 
-
+The threshold is the percentage of surrounding agents that sill have to have
+state 0, so the agent does not join the opposition. It gets determined by a
+uniformly distributed random number between 0 and 1. Dependent on the given
+parameters a certain percentage can get a fixed threshold. Furthermore a few
+agents get a threshold of 1. Those are the agents, that start the
+revolution. How many of these rebels are placed in the network and how far
+they are apart depends on the input parameters.

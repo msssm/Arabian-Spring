@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Tue Dec 13 22:16:47 2011 (+0100)
 % Version: 
-% Last-Updated: Wed Dec 14 10:03:15 2011 (+0100)
+% Last-Updated: Thu Dec 15 21:13:07 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 20
+%     Update #: 24
 % -----------------------------------------------------------------------------
 % implementSolver.tex starts here
 % -----------------------------------------------------------------------------
@@ -43,9 +43,9 @@ the sequential agent update list is calculated.  It is a uniformly distributed
 list of random agent indices that get update in the current time-step.  The
 list is of random length (also uniformly distributed) but at most
 \texttt{maxUpdatedAgents} long.  The constant \texttt{maxUpdatedAgents} is
-calculated on line~26 and is some percentage, defined in the parameter
-structure, of $\mathcal{N}$, thus, if the set $\mathcal{U}$ contains the agents
-that get an update in the current time-step, then
+calculated on line~26 and is some percentage (defined in the parameter
+structure) of $\mathcal{N}$, thus, if the set $\mathcal{U}$ contains the
+sequential update list of the current time-step, then
 $\mathcal{U}\subseteq\mathcal{N}$.
 
 On line~40, a number of noisy agents is calculated in the same way as it is
@@ -54,8 +54,8 @@ is that \texttt{nNoize} is a percentage of the set $\mathcal{U}$.  The
 \textsl{if}-block from line~42--51 then adds the noize and removes the noisy
 agents from the sequential update list.  The update algorithm starts with the
 \textsl{for}-loop on line~53.  The algorithm first checks whether the agent is
-subject to update.  That is, if its state is zero and $\rho_i$ is strong
-engough to pass the agents threshold, then the infection phase of the SIR
+subject to update.  That is, if its state is zero and if $\rho_i$ is strong
+engough to pass the agents threshold.  Then the infection phase of the SIR
 implementation takes effect.  If $\beta = 1$, the infection is not applied at
 all.  If all of these tests are true, then the agent's state is updated to
 contra (\ie, ``$1$'') on line~59.  Note that $\rho_i$ is computed with a
