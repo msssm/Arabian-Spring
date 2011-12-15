@@ -3,7 +3,7 @@
 % Created: Thu Nov 10 21:29:23 2011 (+0100)
 % Version: 
 % Last-Updated: Wed Nov 23 16:58:06 2011 (+0100)
-%           By: Fabian Wermelinger
+%           By: Tileman Conring - tconring@gmail.com
 %     Update #: 10
 % -----------------------------------------------------------------------------
 % randomgraph.m starts here
