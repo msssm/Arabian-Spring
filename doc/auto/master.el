@@ -23,7 +23,7 @@
      "descriptionOfTheModel"
      "implementation"
      "discussionOfResults"
-     "summary"
+     "conclusion"
      "codeMain"
      "codesmallworld"
      "coderandomgraph"

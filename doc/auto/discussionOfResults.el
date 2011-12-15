@@ -11,7 +11,7 @@
      "influencenbrdepth"
      "sec:influencethresholddistribution"
      "influencethresholdplot"
-     "influencenthresholdnetwork"
+     "influencethresholdnetwork"
      "sec:influencenetworktype"
      "influenceNBRdepthRANDOM"
      "sec:comparisontoreal")))
