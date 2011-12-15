@@ -5,9 +5,9 @@
 % Email: fabianw@student.ethz.ch
 % Created: Thu Dec 15 20:23:54 2011 (+0100)
 % Version: 
-% Last-Updated: Thu Dec 15 22:58:31 2011 (+0100)
+% Last-Updated: Thu Dec 15 23:10:34 2011 (+0100)
 %           By: Fabian Wermelinger
-%     Update #: 4
+%     Update #: 6
 % -----------------------------------------------------------------------------
 % conclusion.tex starts here
 % -----------------------------------------------------------------------------
@@ -43,7 +43,13 @@ $\mathcal{N}$.
 The next step in developing the model would be to implement a probability which
 takes into account that an agent might not know all of its direct and indirect
 neighbors.  The weight of that probability should be on its \emph{indirect}
-neighbors.
+neighbors.  The agents threshold field was always uniformly distributed for all
+simulated data.  It would be interesting to see the effect of other
+distribution models and their impact on the simulation results.  For example, a
+normal distribution might be an alternative.  A normal distribution might yield
+similar results as discussed in
+Section~\ref{sec:influencethresholddistribution} if there are too many agents
+with thresholds that are not too distinct. 
 
 %%% Local Variables: 
 %%% mode: latex
@@ -53,3 +59,4 @@ neighbors.
 % -----------------------------------------------------------------------------
 % conclusion.tex ends here
 % -----------------------------------------------------------------------------
+
