@@ -57,7 +57,7 @@
      "amssymb"
      "amsmath"
      "geometry"
-     "23cm}"
+     "23.5cm}"
      "centering"
      "a4"
      "fontenc"
