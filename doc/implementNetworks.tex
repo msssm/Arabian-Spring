@@ -2,7 +2,7 @@
 \label{sec:implementationofnetworks}
 
 The full code of the network generating functions can be found in
-Appendix~\ref{sec:smallworld.m} and Appendix~\ref{sec:randomnetwork}. This section describes shortly the implementation of Section~\ref{sec:descriptionofnetwork} in \matlab code. \\
+Appendix~\ref{sec:smallworld.m} and Appendix~\ref{sec:randomnetwork}. This section describes shortly the implementation of Section~\ref{sec:descriptionofnetwork} in \matlab code. For more details on the implementation of the networks see \cite{BruggerSchwirzer2011}.\\
 
 We used two different implementations for the small world network and the random graph althoug the random graph is just a limiting case in the Watts and Strogatz Model. The Small world model has three input parameters: the total number of nodes, the mean degree and the rewiring probability. The output of the implementation is a sparse symmetric adjacency matrix representing the network graph. We used the format sparse to save memory. The implementation first constructs an regular lattice, where each node has in total the given mean degree. In a second step in two nested for loops we iterate over all nodes exploiting the symmetry and rewire the loops with the specified rewiring propability. As mentioned the output needs to be symmetric which is after the rewiring not the case but now we can make use of the symmetry in order to get the full symmetric adjacency matrix.\\
 
