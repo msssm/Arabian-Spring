@@ -5,9 +5,9 @@
 %% Email: fabianw@student.ethz.ch
 %% Created: Sat Jul 23 19:36:14 2011 (+0200)
 %% Version: 
-%% Last-Updated: Thu Dec 15 20:23:19 2011 (+0100)
+%% Last-Updated: Fri Dec 16 12:32:15 2011 (+0100)
 %%           By: Fabian Wermelinger
-%%     Update #: 14
+%%     Update #: 16
 %% ----------------------------------------------------------------------------
 %%% master.tex starts here
 %% ----------------------------------------------------------------------------
@@ -15,10 +15,8 @@
 %Preamble
 %------------------------------------------------------------------------------
 \documentclass[11pt,a4paper]{article}
-\input{header.tex}
 
-%draft watermark
-% \usepackage[dvips,first,bottomafter]{draftcopy}
+\input{header.tex}
 
 %additional options
 \newcommand{\nomunit}[1]{%
@@ -31,7 +29,6 @@
 \newcommand\Top{\rule{0pt}{3ex}} %for tables
 \newcommand\Bot{\rule[-1.5ex]{0pt}{0pt}} %for tables
 
-% \def\bibdir{./references} %path to library
 \def\bibtitle{Refrences} %bib title
 
 % definition environment
@@ -53,7 +50,13 @@
 %Abstract
 %------------------------------------------------------------------------------
 \begin{abstract}
-The Arabian Spring, in which the revolutions occurred in many countries almost parallel, but different, raises the question what parameters influence the different developments. Simulating the countries as networks of agents, we analysed the effect of different network types and applied Kuran's threshold model. We found that both the type of the network and the distribution of the threshold, have a significant effect on the development of a revolution. 
+  The Arabian Spring, in which the revolutions occurred in many countries
+  almost parallel, but different, raises the question what parameters influence
+  the different developments. Simulating the countries as networks of agents,
+  we analysed the effect of different network types and applied Kuran's
+  threshold model. We found that both the type of the network and the
+  distribution of the threshold, have a significant effect on the development
+  of a revolution.
 \end{abstract}
 
 %Frontmatter
@@ -61,43 +64,35 @@ The Arabian Spring, in which the revolutions occurred in many countries almost p
 % \pagenumbering{roman}
 %TOC
 \tableofcontents
-\newpage
-% \clearpage
-% %LOF
-% \listoffigures
-% \clearpage
-% %LOT
-% \listoftables
-% \clearpage
-% %Nomenclature
-% \markboth{\nomname}{\nomname}
-% \printnomenclature
-% \clearpage
+
+%LOF
+\listoffigures
+\clearpage
 
 %Mainmatter
 %------------------------------------------------------------------------------
 %Mainbody
 
 \input{individualContribution.tex}
-\newpage
+\clearpage
 \input{introAndMotivation.tex}
-\newpage
+\clearpage
 \input{descriptionOfTheModel.tex}
-\newpage
+\clearpage
 \input{implementation.tex}
-\newpage
+\clearpage
 \input{discussionOfResults.tex}
-\newpage
+\clearpage
 \input{conclusion.tex}
 
-\newpage
+\clearpage
 %BibTeX
 \renewcommand{\bibname}{\bibtitle}
 \bibliographystyle{siam}
 %\addcontentsline{toc}{section}{References}
 \bibliography{projectLib}
 
-\newpage
+\clearpage
 
 %Appendix
 \appendix
@@ -105,21 +100,14 @@ The Arabian Spring, in which the revolutions occurred in many countries almost p
 \fvset{fontsize=\small, frame=lines,%
   numbers=left, numbersep=3pt, fontshape=sl}
 \input{codeMain.tex} 
-\newpage
+\clearpage
 \input{codesmallworld.tex}
-\newpage
+\clearpage
 \input{coderandomgraph.tex}
-\newpage
+\clearpage
 \input{codeAgents.tex}
-\newpage
+\clearpage
 \input{codeSolver.tex}
-
-%Backmatter
-%------------------------------------------------------------------------------
-
-%Nomenclature
-% \markboth{\nomname}{\nomname}
-% \printnomenclature
 
 %------------------------------------------------------------------------------
 \end{document}
